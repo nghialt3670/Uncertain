@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: lobby_vi
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: vi
+  m_SharedData: {fileID: 11400000, guid: 11bed78828150f04a88d0d0003cc6c78, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 18425303040
+    m_Localized: "B\u1EAFt \u0111\u1EA7u"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3399537643520
+    m_Localized: "C\xE0i \u0111\u1EB7t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3485193719808
+    m_Localized: "Ng\xF4n ng\u1EEF"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3591200559104
+    m_Localized: "\xC2m l\u01B0\u1EE3ng"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3664487632896
+    m_Localized: "L\u01B0u"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3780460138496
+    m_Localized: "\u0110\xF3ng"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6873474125824
+    m_Localized: "Ti\u1EBFng Vi\u1EC7t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6881518800896
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12841524121600
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12897836847104
+    m_Localized: "Ti\u1EBFng VI\u1EC7t"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
