@@ -1,0 +1,45 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/GlobalStyles.uss?fileID=7433441132597879392&amp;guid=706ca259c8ef8274e87f9ee07ba294bd&amp;type=3#GlobalStyles" />
+    <Style src="project://database/Assets/UI%20Toolkit/GameSettingsOverlay/GameSettingsOverlay.uss?fileID=7433441132597879392&amp;guid=6a020cf33c3ab3841a95b2baf6bffa66&amp;type=3#GameSettingsOverlay" />
+    <engine:VisualElement name="Overlay" style="justify-content: center; align-items: center; align-content: auto; background-color: rgba(0, 0, 0, 0.59); flex-grow: 1; height: 1920px; transition-property: opacity; transition-duration: 1s; transition-timing-function: ease-in-out-cubic;">
+        <engine:VisualElement name="Modal" style="flex-grow: 0; max-width: none; background-color: rgb(130, 130, 130); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0; position: relative; right: auto; left: auto; top: auto; border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); align-self: center; align-content: auto; justify-content: space-between; align-items: stretch; min-width: auto; min-height: auto; width: 1000px; height: 800px;">
+            <engine:VisualElement name="Header" style="flex-grow: 0; height: auto; white-space: normal; flex-direction: row; align-self: auto; align-items: center; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px;">
+                <engine:VisualElement name="SettingsIcon" class="icon" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/Art/UI/Icons/settings.png?fileID=2800000&amp;guid=da8f840270e86404fa4bb8f3cf59de4a&amp;type=3#settings&quot;);" />
+                <engine:VisualElement name="Spacer" style="flex-grow: 0; width: 30px;" />
+                <engine:Label text="Settings" name="SettingsLabel" style="font-size: 60px; -unity-font-style: bold; -unity-text-align: middle-left;">
+                    <Bindings>
+                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(3399537643520)" />
+                    </Bindings>
+                </engine:Label>
+            </engine:VisualElement>
+            <engine:VisualElement name="Main" style="flex-grow: 0; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px;">
+                <engine:VisualElement name="Container" style="flex-grow: 0; justify-content: space-evenly; align-items: stretch; align-content: auto;">
+                    <engine:DropdownField name="LanguageDropdownField" choices="Tiếng Việt,English" index="0" style="font-size: 50px; -unity-text-align: middle-left;">
+                        <Bindings>
+                            <UnityEngine.Localization.LocalizedString property="label" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(3485193719808)" />
+                        </Bindings>
+                    </engine:DropdownField>
+                    <engine:VisualElement name="Spacer" style="height: 50px;" />
+                    <engine:Slider fill="true" value="50" high-value="100" name="VolumeSlider" class="inputField">
+                        <Bindings>
+                            <UnityEngine.Localization.LocalizedString property="label" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(3591200559104)" />
+                        </Bindings>
+                    </engine:Slider>
+                </engine:VisualElement>
+            </engine:VisualElement>
+            <engine:VisualElement name="Footer" style="flex-grow: 0; height: auto; flex-direction: row; align-items: center; justify-content: flex-end; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px;">
+                <engine:Button text="Save" name="SaveButton" class="button">
+                    <Bindings>
+                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(3664487632896)" />
+                    </Bindings>
+                </engine:Button>
+                <engine:VisualElement name="Spacer" style="height: auto; width: 30px;" />
+                <engine:Button text="Close" name="CloseButton" class="button">
+                    <Bindings>
+                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(3780460138496)" />
+                    </Bindings>
+                </engine:Button>
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

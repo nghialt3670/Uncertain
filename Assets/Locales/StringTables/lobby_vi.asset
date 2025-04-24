@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: lobby_vi
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: vi
+  m_SharedData: {fileID: 11400000, guid: 11bed78828150f04a88d0d0003cc6c78, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 18425303040
+    m_Localized: "B\u1EAFt \u0111\u1EA7u"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3399537643520
+    m_Localized: "C\xE0i \u0111\u1EB7t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3485193719808
+    m_Localized: "Ng\xF4n ng\u1EEF"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3591200559104
+    m_Localized: "\xC2m l\u01B0\u1EE3ng"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3664487632896
+    m_Localized: "L\u01B0u"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3780460138496
+    m_Localized: "\u0110\xF3ng"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6873474125824
+    m_Localized: "Ti\u1EBFng Vi\u1EC7t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6881518800896
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12841524121600
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12897836847104
+    m_Localized: "Ti\u1EBFng VI\u1EC7t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 303291940438016
+    m_Localized: "Ch\u1EE7 \u0111\u1EC1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 310103028760576
+    m_Localized: "Nh\u1EADp t\xEAn ng\u01B0\u1EDDi ch\u01A1i..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 650390930423808
+    m_Localized: "\U0001F3AF M\u1EE5c Ti\xEAu\n\nT\xECm ra v\xE0 lo\u1EA1i b\u1ECF
+      ng\u01B0\u1EDDi ngo\xE0i h\xE0nh tinh. Ng\u01B0\u1EDDi ngo\xE0i h\xE0nh tinh
+      c\u1EA7n gi\u1EA3 d\u1EA1ng \u0111\u1EC3 kh\xF4ng b\u1ECB ph\xE1t hi\u1EC7n.\n\n\U0001F465
+      Vai Tr\xF2\n\nNg\u01B0\u1EDDi th\u01B0\u1EDDng: \u0110a s\u1ED1 ng\u01B0\u1EDDi
+      ch\u01A1i, c\xF9ng nh\u1EADn m\u1ED9t t\u1EEB gi\u1ED1ng nhau.\n\nNg\u01B0\u1EDDi
+      ngo\xE0i h\xE0nh tinh: M\u1ED9t nh\xF3m nh\u1ECF (\xEDt h\u01A1n 1/3 t\u1ED5ng
+      s\u1ED1 ng\u01B0\u1EDDi ch\u01A1i), nh\u1EADn m\u1ED9t t\u1EEB kh\xE1c nh\u01B0ng
+      g\u1EA7n gi\u1ED1ng.\n\n\U0001F504 C\xE1ch Ch\u01A1i\n\nPh\xE2n ph\xE1t t\u1EEB
+      kh\xF3a: M\u1ED7i ng\u01B0\u1EDDi ch\u01A1i nh\u1EADn m\u1ED9t t\u1EEB (ng\u01B0\u1EDDi
+      th\u01B0\u1EDDng c\xF9ng m\u1ED9t t\u1EEB, ng\u01B0\u1EDDi ngo\xE0i h\xE0nh
+      tinh m\u1ED9t t\u1EEB kh\xE1c).\n\nMi\xEAu t\u1EA3: L\u1EA7n l\u01B0\u1EE3t
+      t\u1EEBng ng\u01B0\u1EDDi m\xF4 t\u1EA3 t\u1EEB m\xECnh b\u1EB1ng 1\u20132
+      c\xE2u \u2014 kh\xF4ng \u0111\u01B0\u1EE3c n\xF3i tr\u1EF1c ti\u1EBFp t\u1EEB
+      \u0111\xF3 ho\u1EB7c d\xF9ng t\u1EEB \u0111\u1ED3ng ngh\u0129a/d\u1ECBch ngh\u0129a.\n\nTh\u1EA3o
+      lu\u1EADn: Sau khi t\u1EA5t c\u1EA3 \u0111\xE3 n\xF3i, c\u1EA3 nh\xF3m th\u1EA3o
+      lu\u1EADn \u0111\u1EC3 t\xECm ra ai \u0111\xE1ng nghi.\n\nB\u1ECF phi\u1EBFu:
+      M\u1ED7i ng\u01B0\u1EDDi ch\u1ECDn m\u1ED9t ng\u01B0\u1EDDi m\xECnh nghi l\xE0
+      ng\u01B0\u1EDDi ngo\xE0i h\xE0nh tinh. Ng\u01B0\u1EDDi b\u1ECB nghi nhi\u1EC1u
+      nh\u1EA5t s\u1EBD b\u1ECB lo\u1EA1i.\n\nTi\u1EBFp t\u1EE5c v\xF2ng m\u1EDBi:
+      L\u1EB7p l\u1EA1i qu\xE1 tr\xECnh cho \u0111\u1EBFn khi tr\xF2 ch\u01A1i k\u1EBFt
+      th\xFAc.\n\n\U0001F3C6 \u0110i\u1EC1u Ki\u1EC7n Th\u1EAFng\n\nNg\u01B0\u1EDDi
+      th\u01B0\u1EDDng th\u1EAFng khi lo\u1EA1i h\u1EBFt ng\u01B0\u1EDDi ngo\xE0i
+      h\xE0nh tinh.\n\nNg\u01B0\u1EDDi ngo\xE0i h\xE0nh tinh th\u1EAFng n\u1EBFu
+      s\u1ED1ng s\xF3t \u0111\u1EBFn khi ch\u1EC9 c\xF2n 2 ho\u1EB7c 3 ng\u01B0\u1EDDi
+      ch\u01A1i (t\xF9y v\xE0o t\u1ED5ng s\u1ED1 ng\u01B0\u1EDDi ch\u01A1i ban \u0111\u1EA7u).\n\n\u26A0\uFE0F
+      M\u1EB9o\n\nMi\xEAu t\u1EA3 v\u1EEBa \u0111\u1EE7 \u2014 \u0111\u1EEBng qu\xE1
+      r\xF5 r\xE0ng c\u0169ng \u0111\u1EEBng qu\xE1 m\u01A1 h\u1ED3.\n\nL\u1EAFng
+      nghe k\u1EF9 c\xE1ch ng\u01B0\u1EDDi kh\xE1c m\xF4 t\u1EA3 \u0111\u1EC3 ph\xE1t
+      hi\u1EC7n \u0111i\u1EC3m kh\xE1c bi\u1EC7t."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651589431820288
+    m_Localized: "Lu\u1EADt ch\u01A1i\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 694396590718976
+    m_Localized: "M\xE0n h\xECnh ch\xEDnh"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2124492585488384
+    m_Localized: "T\xF9y ch\u1EC9nh"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2125284906291200
+    m_Localized: "Th\xEAm ng\u01B0\u1EDDi ch\u01A1i"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

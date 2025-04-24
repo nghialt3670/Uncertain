@@ -1,0 +1,136 @@
+Button {
+    font-size: 50px;
+    -unity-font-style: bold;
+    padding-right: 40px;
+    padding-left: 40px;
+    min-width: 200px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+    border-left-color: rgb(101, 101, 101);
+    border-right-color: rgb(101, 101, 101);
+    border-top-color: rgb(101, 101, 101);
+    border-bottom-color: rgb(101, 101, 101);
+}
+
+Slider {
+    font-size: 20px;
+}
+
+Slider > Label {
+    -unity-font-style: bold;
+    font-size: 50px;
+    min-width: 350px;
+    flex-wrap: wrap;
+}
+
+Slider > VisualElement {
+    justify-content: center;
+    flex-direction: row;
+    flex-grow: 1;
+    flex-basis: initial;
+}
+
+Slider #unity-drag-container {
+    flex-grow: 1;
+    flex-direction: row;
+    top: auto;
+}
+
+Slider #unity-dragger {
+    width: 50px;
+    height: 50px;
+    top: 30px;
+}
+
+Slider #unity-tracker {
+    height: 20px;
+}
+
+DropdownField {
+    font-size: 60px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+}
+
+DropdownField > Label {
+    -unity-font-style: bold;
+    font-size: 50px;
+    min-width: 350px;
+    flex-wrap: wrap;
+}
+
+DropdownField > VisualElement {
+    justify-content: center;
+    flex-direction: row;
+    flex-grow: 1;
+    flex-basis: initial;
+}
+
+DropdownField > VisualElement > PopupTextElement {
+    font-size: 40px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+}
+
+DropdownField > VisualElement > VisualElement {
+    width: 40px;
+    height: 30px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.background {
+    background-color: rgb(181, 230, 216);
+}
+
+.iconButton:active {
+    background-size: 90px 90px;
+}
+
+.iconButton {
+    background-size: 100px 100px;
+    width: 100px;
+    height: 100px;
+    color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+}
+
+.icon {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+.modal {
+    z-index: 999;
+}
+
+.border {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+}

@@ -1,0 +1,12 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/LobbyUI/PlayerListItem.uss?fileID=7433441132597879392&amp;guid=1e787f1af0aeecb48b23543e0f37d7ad&amp;type=3#PlayerListItem" />
+    <Style src="project://database/Assets/UI%20Toolkit/GlobalStyles.uss?fileID=7433441132597879392&amp;guid=706ca259c8ef8274e87f9ee07ba294bd&amp;type=3#GlobalStyles" />
+    <engine:VisualElement name="Root" style="flex-grow: 0; align-content: auto; align-self: auto; height: auto; background-color: rgb(39, 105, 42); justify-content: center; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; font-size: 100px; flex-direction: row; align-items: center; border-top-left-radius: 40px; border-top-right-radius: 40px; border-bottom-right-radius: 40px; border-bottom-left-radius: 40px; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; color: rgb(0, 0, 0);">
+        <engine:TextField placeholder-text="Enter player name" name="PlayerNameTextField" style="flex-grow: 1; font-size: 50px; border-top-left-radius: 40px; border-top-right-radius: 40px; border-bottom-right-radius: 40px; border-bottom-left-radius: 40px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; height: 100px; background-color: rgba(0, 0, 0, 0);">
+            <Bindings>
+                <UnityEngine.Localization.LocalizedString property="placeholderText" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(310103028760576)" />
+            </Bindings>
+        </engine:TextField>
+        <engine:Button text="Button" name="RemovePlayerButton" class="iconButton" style="background-image: url(&quot;project://database/Assets/Art/UI/Icons/trash-bin.png?fileID=2800000&amp;guid=38151445c63002e41a4c6938a66adb6d&amp;type=3#trash-bin&quot;); width: 70px; height: 70px; background-size: 100% 100%;" />
+    </engine:VisualElement>
+</engine:UXML>

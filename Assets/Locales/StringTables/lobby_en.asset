@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: lobby_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 11bed78828150f04a88d0d0003cc6c78, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 18425303040
+    m_Localized: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3399537643520
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3485193719808
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3591200559104
+    m_Localized: Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3664487632896
+    m_Localized: Save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3780460138496
+    m_Localized: Close
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6873474125824
+    m_Localized: "Ti\u1EBFng Vi\u1EC7t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6881518800896
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12841524121600
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12897836847104
+    m_Localized: "Ti\u1EBFng Vi\u1EC7t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 303291940438016
+    m_Localized: Topic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 310103028760576
+    m_Localized: Enter player name...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 650390930423808
+    m_Localized: "\U0001F3AF Objective\n\nFind and eliminate the aliens. Aliens must
+      blend in and avoid getting caught.\n\n\U0001F465 Roles\n\nHumans: Most players.
+      Everyone receives the same word.\n\nAliens: A small group (less than one-third).
+      They receive a slightly different word.\n\n\U0001F504 How to Play\n\nWord Assignment:
+      Each player secretly gets a word (humans get the same word, aliens get a different
+      one).\n\nDescribe: Players take turns describing their word in 1\u20132 sentences
+      \u2014 without saying the word or using translations/synonyms directly.\n\nDiscuss:
+      After all players have spoken, you can discuss and try to find the aliens.\n\nVote:
+      Everyone votes for the player they think is an alien. The player with the most
+      votes is eliminated.\n\nRepeat: Continue describing and voting each round.\n\n\U0001F3C6
+      Win Conditions\n\nHumans win if all aliens are eliminated.\n\nAliens win if
+      they survive until only 2 or 3 players remain (depending on total players).\n\n\u26A0
+      Tips\n\nBe vague but not too vague \u2014 you want to blend in without being
+      suspicious.\n\nListen carefully and look for small differences in how others
+      describe their words."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651589431820288
+    m_Localized: Rules
+    m_Metadata:
+      m_Items: []
+  - m_Id: 694396590718976
+    m_Localized: Home
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2124492585488384
+    m_Localized: Customize
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2125284906291200
+    m_Localized: Add player
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
