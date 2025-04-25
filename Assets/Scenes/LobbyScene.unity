@@ -187,20 +187,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a322af37fe9b54380343cb786949a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LobbyBaseUIDocument: {fileID: 0}
-  m_GameSettingsOverlayUIDocument: {fileID: 0}
-  m_MatchSettingsOverlayUIDocument: {fileID: 0}
   m_PlayerListItemVTA: {fileID: 9197481963319205126, guid: 7f29dd7216306b543bb34fa2fe48ef62, type: 3}
   m_GameSettingsOverlayVTA: {fileID: 9197481963319205126, guid: ce9b5f96a049d9d4aa76e9b7da4dec75, type: 3}
-  m_MatchSettingsModalVTA: {fileID: 0}
+  m_GameRulesOverlayVTA: {fileID: 9197481963319205126, guid: ccfec08682de20e4aaa8a3959de39f3f, type: 3}
+  m_MatchSettingsModalVTA: {fileID: 9197481963319205126, guid: 904d77467745b3e47be34be9d73f0824, type: 3}
   m_PlayerListViewName: PlayerListView
   m_PlayerNameTextFieldName: PlayerNameTextField
   m_AddPlayerButtonName: AddPlayerButton
   m_RemovePlayerButtonName: RemovePlayerButton
   m_NumAliensLabelName: NumAliensLabel
   m_NumHumansLabelName: NumHumansLabel
-  m_OpenGameSettingsModalButtonName: GameSettingsButton
-  m_CloseGameSettingsModalButtonName: CloseButton
+  m_OpenGameSettingsOverlayButtonName: GameSettingsButton
+  m_CloseGameSettingsOverlayButtonName: CloseButton
+  m_SaveGameSettingsButtonName: SaveButton
+  m_LanguageDropdownFieldName: LanguageDropdownField
+  m_VolumeSliderName: VolumeSlider
 --- !u!1 &1338633497
 GameObject:
   m_ObjectHideFlags: 0
