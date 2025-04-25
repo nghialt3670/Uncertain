@@ -100,6 +100,10 @@ MonoBehaviour:
     m_Localized: Add player
     m_Metadata:
       m_Items: []
+  - m_Id: 2810411965665280
+    m_Localized: Dictionary
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

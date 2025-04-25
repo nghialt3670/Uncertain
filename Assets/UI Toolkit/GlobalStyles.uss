@@ -1,8 +1,15 @@
+#unity-text-input {
+    padding-left: 30px;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+}
+
 Button {
     font-size: 50px;
     -unity-font-style: bold;
-    padding-right: 40px;
-    padding-left: 40px;
+    padding-right: 60px;
+    padding-left: 59px;
     min-width: 200px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -14,14 +21,26 @@ Button {
     border-right-width: 5px;
     border-bottom-width: 5px;
     border-left-width: 5px;
-    border-left-color: rgb(101, 101, 101);
-    border-right-color: rgb(101, 101, 101);
-    border-top-color: rgb(101, 101, 101);
-    border-bottom-color: rgb(101, 101, 101);
+    border-left-color: rgba(0, 0, 0, 0.08);
+    border-right-color: rgba(0, 0, 0, 0.08);
+    border-top-color: rgba(0, 0, 0, 0.08);
+    border-bottom-color: rgba(0, 0, 0, 0.08);
+    max-width: 500px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    text-overflow: clip;
+    min-height: 100px;
+    max-height: 200px;
 }
 
 Slider {
     font-size: 20px;
+    -unity-text-align: middle-left;
+}
+
+SliderInt {
+    font-size: 20px;
+    -unity-text-align: middle-left;
 }
 
 Slider > Label {
@@ -29,9 +48,29 @@ Slider > Label {
     font-size: 50px;
     min-width: 350px;
     flex-wrap: wrap;
+    white-space: normal;
+    min-height: auto;
+    max-width: 400px;
+}
+
+SliderInt > Label {
+    -unity-font-style: bold;
+    font-size: 50px;
+    min-width: 350px;
+    flex-wrap: wrap;
+    white-space: normal;
+    min-height: auto;
+    max-width: 400px;
 }
 
 Slider > VisualElement {
+    justify-content: center;
+    flex-direction: row;
+    flex-grow: 1;
+    flex-basis: initial;
+}
+
+SliderInt > VisualElement {
     justify-content: center;
     flex-direction: row;
     flex-grow: 1;
@@ -44,14 +83,57 @@ Slider #unity-drag-container {
     top: auto;
 }
 
+SliderInt #unity-drag-container {
+    flex-grow: 1;
+    flex-direction: row;
+    top: auto;
+}
+
+SliderInt #unity-text-field {
+    flex-grow: 0;
+    flex-direction: row;
+    top: auto;
+    width: 100px;
+    height: 100px;
+    font-size: 50px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+}
+
 Slider #unity-dragger {
     width: 50px;
     height: 50px;
-    top: 30px;
+    top: 35px;
 }
 
 Slider #unity-tracker {
     height: 20px;
+    top: 40px;
+}
+
+SliderInt #unity-tracker {
+    height: 20px;
+    top: auto;
+}
+
+SliderInt #unity-dragger {
+    width: 50px;
+    height: 50px;
+    top: -6px;
+}
+
+SliderInt #unity-text-field #unity-text-input {
+    -unity-text-align: middle-center;
+    background-color: rgba(0, 0, 0, 0);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+}
+
+SliderInt #unity-text-field #unity-text-input > TextElement {
+    -unity-text-align: middle-center;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 DropdownField {
@@ -107,6 +189,7 @@ DropdownField > VisualElement > VisualElement {
     border-right-width: 0;
     border-bottom-width: 0;
     border-left-width: 0;
+    flex-grow: 0;
 }
 
 .icon {
@@ -114,10 +197,6 @@ DropdownField > VisualElement > VisualElement {
     height: 80px;
     flex-shrink: 0;
     flex-grow: 0;
-}
-
-.modal {
-    z-index: 999;
 }
 
 .border {

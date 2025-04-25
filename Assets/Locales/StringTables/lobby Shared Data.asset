@@ -85,6 +85,10 @@ MonoBehaviour:
     m_Key: add_player
     m_Metadata:
       m_Items: []
+  - m_Id: 2810411965665280
+    m_Key: dictionary
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

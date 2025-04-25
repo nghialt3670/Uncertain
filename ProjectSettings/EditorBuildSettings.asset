@@ -12,6 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/LobbyScene.unity
     guid: bcae4fc770cb84844b422f8907f69333
   m_configObjects:
+    com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 996db01762343654bac6e53dc3d5e639, type: 2}
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 751de4f601f2ba24692f81e7af4d5b21, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 7c6ca5d5cf3849a4da5b4b9b6f724862, type: 2}
     com.unity.addressableassets: {fileID: 11400000, guid: 7c8b6465c0340cb49b2fd83c49517f45, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

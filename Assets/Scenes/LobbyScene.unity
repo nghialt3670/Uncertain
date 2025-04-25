@@ -130,6 +130,8 @@ GameObject:
   - component: {fileID: 111758034}
   - component: {fileID: 111758033}
   - component: {fileID: 111758035}
+  - component: {fileID: 111758036}
+  - component: {fileID: 111758037}
   m_Layer: 5
   m_Name: UIDocument
   m_TagString: Untagged
@@ -188,20 +190,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerListItemVTA: {fileID: 9197481963319205126, guid: 7f29dd7216306b543bb34fa2fe48ef62, type: 3}
-  m_GameSettingsOverlayVTA: {fileID: 9197481963319205126, guid: ce9b5f96a049d9d4aa76e9b7da4dec75, type: 3}
-  m_GameRulesOverlayVTA: {fileID: 9197481963319205126, guid: ccfec08682de20e4aaa8a3959de39f3f, type: 3}
-  m_MatchSettingsModalVTA: {fileID: 9197481963319205126, guid: 904d77467745b3e47be34be9d73f0824, type: 3}
   m_PlayerListViewName: PlayerListView
   m_PlayerNameTextFieldName: PlayerNameTextField
   m_AddPlayerButtonName: AddPlayerButton
   m_RemovePlayerButtonName: RemovePlayerButton
-  m_NumAliensLabelName: NumAliensLabel
-  m_NumHumansLabelName: NumHumansLabel
-  m_OpenGameSettingsOverlayButtonName: GameSettingsButton
-  m_CloseGameSettingsOverlayButtonName: CloseButton
-  m_SaveGameSettingsButtonName: SaveButton
+  m_PlayerIndexLabelName: PlayerIndexLabel
+  m_AlienCountLabelName: AlienCountLabel
+  m_HumanCountLabelName: HumanCountLabel
+--- !u!114 &111758036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111758032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ebeca71375b7064394d23e1eb57fe3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_GameSettingsOverlay: {fileID: 9197481963319205126, guid: ce9b5f96a049d9d4aa76e9b7da4dec75, type: 3}
+  m_OpenButtonName: GameSettingsButton
   m_LanguageDropdownFieldName: LanguageDropdownField
   m_VolumeSliderName: VolumeSlider
+  m_SaveButtonName: SaveButton
+  m_CloseButtonName: CloseButton
+--- !u!114 &111758037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111758032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56398c027faefd442ad2c5f8016c3fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MatchSettingsOverlay: {fileID: 9197481963319205126, guid: 904d77467745b3e47be34be9d73f0824, type: 3}
+  m_OpenButtonName: MatchSettingsButton
+  m_LanguageDropdownFieldName: LanguageDropdownField
+  m_TopicDropdownFieldName: TopicDropdownField
+  m_AlienCountSliderName: AlienCountSlider
+  m_SaveButtonName: SaveButton
+  m_CloseButtonName: CloseButton
 --- !u!1 &1338633497
 GameObject:
   m_ObjectHideFlags: 0

@@ -114,6 +114,10 @@ MonoBehaviour:
     m_Localized: "Th\xEAm ng\u01B0\u1EDDi ch\u01A1i"
     m_Metadata:
       m_Items: []
+  - m_Id: 2810411965665280
+    m_Localized: "T\u1EEB \u0111i\u1EC3n"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

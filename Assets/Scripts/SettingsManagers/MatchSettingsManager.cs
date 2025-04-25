@@ -3,9 +3,9 @@ using UnityEngine;
 
 public static class MatchSettingsManager
 {
-    public const int MIN_PLAYERS = 3;
-    public const int MAX_PLAYERS = 10;
-    public const int MIN_ALIENS = 1;
+    public const int MIN_PLAYER_COUNT = 3;
+    public const int MAX_PLAYER_COUNT = 10;
+    public const int MIN_ALIEN_COUNT = 1;
     public const float MAX_ALIEN_FRACTION = 1 / 3;
 
     private const string DEFAULT_LANGUAGE_CODE = "en";
@@ -15,18 +15,17 @@ public static class MatchSettingsManager
 
     private const string LANGUAGE_CODE_KEY = "LanguageCode";
     private const string TOPIC_KEY = "Topic";
-    private const string PLAYER_COUNT_KEY = "PlayerCount";
-    private const string ALIEN_COUNT_KEY = "AlienCount";
 
     public static List<Player> Players { get; set; }
 
     static MatchSettingsManager()
     {
         Players = new List<Player>();
-        for (int i = 0; i < MIN_PLAYERS; i++)
+        for (int i = 0; i < DEFAULT_PLAYER_COUNT; i++)
         {
             Players.Add(new Player());
         }
+        AlienCount = DEFAULT_ALIEN_COUNT;
     }
 
     public static string LanguageCode
@@ -51,32 +50,29 @@ public static class MatchSettingsManager
 
     public static int PlayerCount
     {
-        get => PlayerPrefs.GetInt(PLAYER_COUNT_KEY, DEFAULT_PLAYER_COUNT);
-        set
-        {
-            PlayerPrefs.SetInt(PLAYER_COUNT_KEY, value);
-            PlayerPrefs.Save();
-        }
+        get => Players.Count;
     }
 
-    public static int AlienCount
-    {
-        get => PlayerPrefs.GetInt(ALIEN_COUNT_KEY, DEFAULT_ALIEN_COUNT);
-        set
-        {
-            PlayerPrefs.SetInt(ALIEN_COUNT_KEY, value);
-            PlayerPrefs.Save();
-        }
-    }
+    public static int AlienCount { get; set; }
 
     public static bool CanAddPlayer()
     {
-        return Players.Count < MAX_PLAYERS;
+        return Players.Count < MAX_PLAYER_COUNT;
     }
 
     public static bool CanRemovePlayer()
     {
-        return Players.Count > MIN_PLAYERS;
+        return Players.Count > MIN_PLAYER_COUNT;
+    }
+
+    public static int GetMinAlientCount()
+    {
+        return MIN_ALIEN_COUNT;
+    }
+
+    public static int GetMaxAlienCount()
+    {
+        return (int)Mathf.Floor(PlayerCount * MAX_ALIEN_FRACTION);
     }
 
     public static void Reset()
