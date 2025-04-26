@@ -1,0 +1,37 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/HomeUI/HomeUI.uss?fileID=7433441132597879392&amp;guid=5ca50f8bb4bebb8479f3589403b15b46&amp;type=3#HomeUI" />
+    <Style src="project://database/Assets/UI%20Toolkit/GlobalStyles.uss?fileID=7433441132597879392&amp;guid=706ca259c8ef8274e87f9ee07ba294bd&amp;type=3#GlobalStyles" />
+    <engine:VisualElement name="Root" enabled="true" class="background" style="flex-grow: 1; opacity: 1; overflow: visible; visibility: visible; position: absolute; left: 0; right: 0; top: 0; bottom: 0; max-width: none; align-items: stretch; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0;">
+        <engine:VisualElement name="Header" style="flex-grow: 1; height: 10%; align-content: auto; justify-content: center; align-items: flex-start; padding-top: 50px; padding-right: 50px; padding-bottom: 50px; padding-left: 50px; align-self: stretch;">
+            <engine:VisualElement name="Container" style="flex-grow: 0; flex-direction: row; align-content: auto; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">
+                <engine:VisualElement name="GameSettingsButton" class="iconButton" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/UI/Icons/settings.png?fileID=2800000&amp;guid=da8f840270e86404fa4bb8f3cf59de4a&amp;type=3#settings&quot;);" />
+                <engine:VisualElement name="Spacer" style="flex-grow: 0; height: auto; width: 50px;" />
+                <engine:VisualElement name="GameRulesButton" class="iconButton" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/UI/Icons/info.png?fileID=2800000&amp;guid=580bc270d2c81034683cc00ab0c56a5d&amp;type=3#info&quot;);" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+        <engine:VisualElement name="Main" style="flex-grow: 1; height: 70%; padding-top: 50px; padding-right: 50px; padding-bottom: 50px; padding-left: 50px; align-items: stretch;">
+            <engine:VisualElement name="Container" style="flex-grow: 1;">
+            </engine:VisualElement>
+            <engine:VisualElement name="Container" style="flex-grow: 1; align-items: center; justify-content: center;">
+                <engine:Label text="Label" name="SelectGameModeLabel" style="font-size: 50px; -unity-font-style: bold;">
+                    <Bindings>
+                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(3209435117965312)" />
+                    </Bindings>
+                </engine:Label>
+                <engine:VisualElement name="Spacer" style="height: 50px;" />
+                <engine:Button text="Start&#10;" name="SingleDeviceButton" class="button" style="font-size: 60px; background-color: rgb(76, 153, 196); white-space: nowrap;">
+                    <Bindings>
+                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(3208473003347968)" />
+                    </Bindings>
+                </engine:Button>
+                <engine:VisualElement name="Spacer" style="height: 50px;" />
+                <engine:Button text="Start&#10;" name="OnlineButton" enabled="false" class="button" style="font-size: 60px; background-color: rgb(76, 196, 193); white-space: nowrap;">
+                    <Bindings>
+                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(3208678352277504)" />
+                    </Bindings>
+                </engine:Button>
+            </engine:VisualElement>
+        </engine:VisualElement>
+        <engine:VisualElement name="Footer" style="flex-grow: 1; height: 20%; align-items: center; justify-content: center;" />
+    </engine:VisualElement>
+</engine:UXML>

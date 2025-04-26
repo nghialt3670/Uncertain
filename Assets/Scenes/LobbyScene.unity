@@ -232,6 +232,7 @@ MonoBehaviour:
   m_LanguageDropdownFieldName: LanguageDropdownField
   m_TopicDropdownFieldName: TopicDropdownField
   m_AlienCountSliderName: AlienCountSlider
+  m_AlienCountLabelName: AlienCountLabel
   m_SaveButtonName: SaveButton
   m_CloseButtonName: CloseButton
 --- !u!1 &1338633497

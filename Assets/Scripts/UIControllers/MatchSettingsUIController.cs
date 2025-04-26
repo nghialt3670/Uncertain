@@ -1,13 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using Mono.Cecil.Cil;
-using System.Threading;
-using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.UIElements;
 using System.Threading.Tasks;
+using UnityEngine.Assertions;
 
 public class MatchSettingsUIController : MonoBehaviour
 {
@@ -56,20 +53,11 @@ public class MatchSettingsUIController : MonoBehaviour
 
         _ = FetchFieldOptions();
 
-        m_AlienCountSliderInt.lowValue = MatchSettingsManager.GetMinAlientCount();
-        m_AlienCountSliderInt.highValue = MatchSettingsManager.GetMaxAlienCount();
-        m_AlienCountSliderInt.value = m_AlienCountSliderInt.lowValue;
-        m_AlienCountLabel.RegisterValueChangedCallback(e => m_AlienCountLabel.text = e.newValue.ToString());
-
+        m_AlienCountSliderInt.RegisterValueChangedCallback(e => m_AlienCountLabel.text = e.newValue.ToString());
+        m_AlienCountLabel.text = m_AlienCountSliderInt.value.ToString();
         m_OpenButton.RegisterCallback<ClickEvent>(e => ShowOverlay());
         m_SaveButton.clicked += SaveMatchSettings;
         m_CloseButton.clicked += HideOverlay;
-    }
-
-    private void Update()
-    {
-        m_AlienCountSliderInt.lowValue = MatchSettingsManager.GetMinAlientCount();
-        m_AlienCountSliderInt.highValue = MatchSettingsManager.GetMaxAlienCount();
     }
 
     public void ShowOverlay()
@@ -87,6 +75,8 @@ public class MatchSettingsUIController : MonoBehaviour
     private void LoadMatchSettings()
     {
         m_LanguageDropdownField.value = LocalizationUtils.ConvertCodeToNativeName(MatchSettingsManager.LanguageCode);
+        m_AlienCountSliderInt.lowValue = MatchSettingsManager.GetMinAlientCount();
+        m_AlienCountSliderInt.highValue = MatchSettingsManager.GetMaxAlienCount();
         m_AlienCountSliderInt.value = MatchSettingsManager.AlienCount;
     }
 
@@ -101,8 +91,8 @@ public class MatchSettingsUIController : MonoBehaviour
         await FetchLanguageOptions();
         await FetchTopicOptions();
         m_LanguageDropdownField.RegisterValueChangedCallback(async e => await FetchTopicOptions());
+        LoadMatchSettings();
     }
-
 
     private async Task FetchLanguageOptions()
     {
@@ -117,7 +107,8 @@ public class MatchSettingsUIController : MonoBehaviour
             .ToList();
 
         m_LanguageDropdownField.value = m_LanguageDropdownField.choices
-            .FirstOrDefault(choice => choice == LocalizationUtils.ConvertCodeToNativeName(MatchSettingsManager.LanguageCode));
+            .FirstOrDefault(choice => choice == LocalizationUtils.ConvertCodeToNativeName(MatchSettingsManager.LanguageCode)) ??
+            m_LanguageDropdownField.choices.FirstOrDefault();
     }
 
     private async Task FetchTopicOptions()
@@ -133,10 +124,9 @@ public class MatchSettingsUIController : MonoBehaviour
             .ToList();
 
         m_LanguageDropdownField.value = m_LanguageDropdownField.choices
-            .FirstOrDefault(choice => choice == MatchSettingsManager.Topic);
+            .FirstOrDefault(choice => choice == MatchSettingsManager.Topic) ??
+            m_LanguageDropdownField.choices.FirstOrDefault();
     }
-
-
 }
 
 [Serializable]

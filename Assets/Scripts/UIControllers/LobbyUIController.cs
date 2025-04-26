@@ -46,6 +46,11 @@ public class LobbyUIController : MonoBehaviour
 
     private void SetUpPlayerListView()
     {
+        VisualElement makePlayerItem()
+        {
+            return m_PlayerListItemVTA.CloneTree();
+        }
+
         void bindPlayerItem(VisualElement element, int index)
         {
             TextField playerNameTextField = element.Q<TextField>(m_PlayerNameTextFieldName);
@@ -54,6 +59,7 @@ public class LobbyUIController : MonoBehaviour
             if (player != null)
             {
                 playerNameTextField.value = player.name;
+                playerNameTextField.maxLength = GameSettingsManager.PLAYER_NAME_MAX_LENGTH;
                 playerNameTextField.RegisterValueChangedCallback(e => player.name = e.newValue);
             }
 
@@ -70,7 +76,7 @@ public class LobbyUIController : MonoBehaviour
         }
 
         m_PlayerListView.itemsSource = MatchSettingsManager.Players;
-        m_PlayerListView.makeItem = () => m_PlayerListItemVTA.CloneTree();
+        m_PlayerListView.makeItem = makePlayerItem;
         m_PlayerListView.bindItem = bindPlayerItem;
         m_PlayerListView.Rebuild();
     }

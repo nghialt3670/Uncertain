@@ -6,7 +6,7 @@ public static class MatchSettingsManager
     public const int MIN_PLAYER_COUNT = 3;
     public const int MAX_PLAYER_COUNT = 10;
     public const int MIN_ALIEN_COUNT = 1;
-    public const float MAX_ALIEN_FRACTION = 1 / 3;
+    public const float MAX_ALIEN_FRACTION = 1f / 3;
 
     private const string DEFAULT_LANGUAGE_CODE = "en";
     private const string DEFAULT_TOPIC = "";
@@ -72,7 +72,7 @@ public static class MatchSettingsManager
 
     public static int GetMaxAlienCount()
     {
-        return (int)Mathf.Floor(PlayerCount * MAX_ALIEN_FRACTION);
+        return Mathf.FloorToInt(PlayerCount * MAX_ALIEN_FRACTION);
     }
 
     public static void Reset()

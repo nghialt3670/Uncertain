@@ -2,6 +2,8 @@
 
 public static class GameSettingsManager
 {
+    public const int PLAYER_NAME_MAX_LENGTH = 15;
+
     private const string DEFAULT_LOCALE = "en";
     private const float DEFAULT_VOLUME = 0.5f;
 

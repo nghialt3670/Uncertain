@@ -1,3 +1,14 @@
+* {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.unity-base-text-field__input--placeholder {
+    -unity-font-style: normal;
+}
+
 #unity-text-input {
     padding-left: 30px;
     padding-top: 0;
@@ -31,6 +42,35 @@ Button {
     text-overflow: clip;
     min-height: 100px;
     max-height: 200px;
+}
+
+Button :hover {
+    font-size: 50px;
+    -unity-font-style: bold;
+    padding-right: 60px;
+    padding-left: 59px;
+    min-width: 200px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+    border-left-color: rgba(0, 0, 0, 0.08);
+    border-right-color: rgba(0, 0, 0, 0.08);
+    border-top-color: rgba(0, 0, 0, 0.08);
+    border-bottom-color: rgba(0, 0, 0, 0.08);
+    max-width: 500px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    text-overflow: clip;
+    min-height: 100px;
+    max-height: 200px;
+    background-color: rgba(0, 0, 0, 0.39);
 }
 
 Slider {
@@ -154,6 +194,11 @@ DropdownField > VisualElement {
     flex-direction: row;
     flex-grow: 1;
     flex-basis: initial;
+    left: auto;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
 }
 
 DropdownField > VisualElement > PopupTextElement {
@@ -180,7 +225,7 @@ DropdownField > VisualElement > VisualElement {
 }
 
 .iconButton {
-    background-size: 100px 100px;
+    background-size: 80px 80px;
     width: 100px;
     height: 100px;
     color: rgba(0, 0, 0, 0);
@@ -212,4 +257,15 @@ DropdownField > VisualElement > VisualElement {
     border-right-color: rgb(0, 0, 0);
     border-top-color: rgb(0, 0, 0);
     border-bottom-color: rgb(0, 0, 0);
+}
+
+#Modal {
+    border-left-color: rgba(0, 0, 0, 0.08);
+    border-right-color: rgba(0, 0, 0, 0.08);
+    border-top-color: rgba(0, 0, 0, 0.08);
+    border-bottom-color: rgba(0, 0, 0, 0.08);
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
 }
