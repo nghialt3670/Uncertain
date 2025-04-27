@@ -1,6 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/GlobalStyles.uss?fileID=7433441132597879392&amp;guid=706ca259c8ef8274e87f9ee07ba294bd&amp;type=3#GlobalStyles" />
-    <Style src="project://database/Assets/UI%20Toolkit/LobbyUI/LobbyUI.uss?fileID=7433441132597879392&amp;guid=192ea64b98376d64b8bc18f5f3bbf7b1&amp;type=3#LobbyUI" />
     <ui:VisualElement name="Root" enabled="true" class="background" style="flex-grow: 1; opacity: 1; overflow: visible; visibility: visible; position: absolute; left: 0; right: 0; top: 0; bottom: 0; max-width: none; align-items: stretch;">
         <ui:VisualElement name="Header" style="flex-grow: 1; height: 10%; align-content: auto; justify-content: center; align-items: flex-start; padding-top: 50px; padding-right: 50px; padding-bottom: 50px; padding-left: 50px; align-self: stretch;">
             <ui:VisualElement name="Container" style="flex-grow: 0; flex-direction: row; align-content: auto; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">
@@ -10,39 +9,39 @@
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="Main" style="flex-grow: 1; height: 70%; padding-top: 50px; padding-right: 50px; padding-bottom: 50px; padding-left: 50px; align-items: stretch;">
-            <ui:VisualElement name="Container" style="flex-grow: 1; max-width: none;">
-                <ui:ListView show-add-remove-footer="false" name="PlayerListView" virtualization-method="DynamicHeight" enabled="true" selection-type="None" allow-add="true" item-template="project://database/Assets/UI%20Toolkit/LobbyUI/PlayerListItem.uxml?fileID=9197481963319205126&amp;guid=7f29dd7216306b543bb34fa2fe48ef62&amp;type=3#PlayerListItem" style="flex-grow: 1; padding-top: 20px; padding-right: 20px; padding-bottom: 150px; padding-left: 20px; background-color: rgb(140, 220, 198); height: auto; align-content: auto; min-height: auto; max-height: none; border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-left-color: rgba(0, 0, 0, 0.08); border-right-color: rgba(0, 0, 0, 0.08); border-top-color: rgba(0, 0, 0, 0.08); border-bottom-color: rgba(0, 0, 0, 0.08);" />
-                <ui:VisualElement name="Container" style="flex-grow: 1; position: absolute; left: auto; right: 30px; bottom: 30px; flex-direction: row;">
-                    <ui:VisualElement name="Container" style="flex-grow: 1; flex-direction: row; justify-content: center; align-items: center;">
-                        <ui:VisualElement name="AlienIcon" class="icon" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/UI/Icons/aliens.png?fileID=2800000&amp;guid=586804e7e8f12524585fd4ba11bfd711&amp;type=3#aliens&quot;);" />
-                        <ui:VisualElement name="Spacer" style="flex-grow: 0; height: auto; width: 10px;" />
-                        <ui:Label text="0" name="AlienCountLabel" style="font-size: 60px; -unity-font-style: normal;" />
-                    </ui:VisualElement>
-                    <ui:VisualElement name="Spacer" style="flex-grow: 0; height: auto; width: 100px;" />
-                    <ui:VisualElement name="Container" style="flex-grow: 1; flex-direction: row; justify-content: center; align-items: center;">
-                        <ui:VisualElement name="HumansIcon" class="icon" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/UI/Icons/multiple-users-silhouette.png?fileID=2800000&amp;guid=99f24b49713b8e744aa592c7a55f2918&amp;type=3#multiple-users-silhouette&quot;);" />
-                        <ui:VisualElement name="Spacer" style="flex-grow: 0; height: auto; width: 20px;" />
-                        <ui:Label text="0" name="HumanCountLabel" style="font-size: 60px; -unity-font-style: normal;" />
-                    </ui:VisualElement>
-                </ui:VisualElement>
-            </ui:VisualElement>
-            <ui:VisualElement name="Spacer" style="flex-grow: 0; height: 50px;" />
-            <ui:VisualElement name="Container" style="flex-grow: 0; background-size: 100% 100%; height: auto; flex-direction: row; align-items: stretch; justify-content: center; align-content: auto;">
-                <ui:Button text="Customize" name="MatchSettingsButton" class="button">
-                    <Bindings>
-                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(2124492585488384)" />
-                    </Bindings>
-                </ui:Button>
-                <ui:VisualElement name="Spacer" style="flex-grow: 0; width: 50px;" />
-                <ui:Button text="Add player" name="AddPlayerButton" class="button" style="-unity-text-align: middle-center; white-space: nowrap;">
+            <ui:VisualElement name="Container" style="flex-grow: 0; max-width: none; justify-content: flex-start; align-items: stretch; background-color: rgb(140, 220, 198); border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-left-color: rgba(0, 0, 0, 0.08); border-right-color: rgba(0, 0, 0, 0.08); border-top-color: rgba(0, 0, 0, 0.08); border-bottom-color: rgba(0, 0, 0, 0.08); padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; height: 90%;">
+                <ui:ListView show-add-remove-footer="false" name="PlayerListView" virtualization-method="DynamicHeight" selection-type="None" item-template="project://database/Assets/UI%20Toolkit/LobbyUI/PlayerListItem.uxml?fileID=9197481963319205126&amp;guid=7f29dd7216306b543bb34fa2fe48ef62&amp;type=3#PlayerListItem" focusable="true" show-bound-collection-size="false" style="flex-grow: 1; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; height: auto; align-content: auto; min-height: auto; max-height: none; margin-bottom: 0;" />
+                <ui:VisualElement name="Spacer" style="flex-grow: 0; height: 20px;" />
+                <ui:Button text="Add player" name="AddPlayerButton" class="button" style="-unity-text-align: middle-center; white-space: nowrap; position: relative; bottom: 0; align-self: stretch; background-color: rgba(0, 0, 0, 0.04); max-width: none; flex-grow: 0; flex-shrink: 1; min-width: auto; width: auto; align-items: flex-start; justify-content: flex-start; left: 0; right: 0; background-image: url(&quot;project://database/Assets/Art/UI/Icons/add.png?fileID=2800000&amp;guid=18095dc788b91d64c8677985b48f04e8&amp;type=3#add&quot;); background-position-x: center 70px; background-position-y: center 0; background-size: 60px 60%; -unity-font-definition: initial;">
                     <Bindings>
                         <UnityEngine.Localization.LocalizedString property="text" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(2125284906291200)" />
                     </Bindings>
                 </ui:Button>
             </ui:VisualElement>
+            <ui:VisualElement name="Spacer" style="flex-grow: 0; height: 50px;" />
+            <ui:VisualElement name="Container" style="flex-grow: 0; flex-direction: row; justify-content: space-between; height: 100px;">
+                <ui:VisualElement name="Container" style="flex-grow: 0; position: relative; left: auto; right: auto; bottom: auto; flex-direction: row; margin-left: 40px;">
+                    <ui:VisualElement name="Container" style="flex-grow: 1; flex-direction: row; justify-content: center; align-items: center;">
+                        <ui:VisualElement name="HumansIcon" class="icon" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/UI/Icons/multiple-users-silhouette.png?fileID=2800000&amp;guid=99f24b49713b8e744aa592c7a55f2918&amp;type=3#multiple-users-silhouette&quot;);" />
+                        <ui:VisualElement name="Spacer" style="flex-grow: 0; height: auto; width: 20px;" />
+                        <ui:Label text="0" name="HumanCountLabel" style="font-size: 60px; -unity-font-style: normal;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Spacer" style="flex-grow: 0; height: auto; width: 50px;" />
+                    <ui:VisualElement name="Container" style="flex-grow: 1; flex-direction: row; justify-content: center; align-items: center;">
+                        <ui:VisualElement name="AlienIcon" class="icon" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/UI/Icons/aliens.png?fileID=2800000&amp;guid=586804e7e8f12524585fd4ba11bfd711&amp;type=3#aliens&quot;);" />
+                        <ui:VisualElement name="Spacer" style="flex-grow: 0; height: auto; width: 10px;" />
+                        <ui:Label text="0" name="AlienCountLabel" style="font-size: 60px; -unity-font-style: normal;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:Button text="Customize" name="MatchSettingsButton" class="button" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; background-color: rgb(116, 177, 203);">
+                    <Bindings>
+                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(2124492585488384)" />
+                    </Bindings>
+                </ui:Button>
+            </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="Footer" style="flex-grow: 1; height: 20%; align-items: center; justify-content: center;">
-            <ui:Button text="Start&#10;" name="Start" class="button" style="font-size: 100px; background-color: rgb(76, 196, 136); white-space: nowrap;">
+            <ui:Button text="Start&#10;" name="StartButton" class="button" style="font-size: 80px; background-color: rgb(76, 196, 136); white-space: nowrap;">
                 <Bindings>
                     <UnityEngine.Localization.LocalizedString property="text" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(18425303040)" />
                 </Bindings>

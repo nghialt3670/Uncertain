@@ -10,7 +10,7 @@ using UnityEngine.Networking;
 /// </summary>
 public static class ApiUtils
 {
-    private static string BaseUrl = "https://52.79.250.196/api/";
+    private static string BaseUrl = "https://52.79.250.196/";
     private static readonly int DefaultTimeout = 10; // seconds
 
     #region GET Requests
@@ -59,21 +59,21 @@ public static class ApiUtils
         string url = BaseUrl + endpoint;
         string jsonData = JsonUtility.ToJson(data);
 
-        using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
-        {
-            byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
-            request.uploadHandler = new UploadHandlerRaw(bodyRaw);
-            request.downloadHandler = new DownloadHandlerBuffer();
-            request.SetRequestHeader("Content-Type", "application/json");
+        using UnityWebRequest request = new(url, "POST");
+        request.certificateHandler = new BypassCertificateHandler();
 
-            // Add default timeout
-            request.timeout = DefaultTimeout;
+        byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
+        request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+        request.downloadHandler = new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
 
-            // Add headers if provided
-            AddRequestHeaders(request, headers);
+        // Add default timeout
+        request.timeout = DefaultTimeout;
 
-            return await SendRequestAsync(request);
-        }
+        // Add headers if provided
+        AddRequestHeaders(request, headers);
+
+        return await SendRequestAsync(request);
     }
 
     /// <summary>

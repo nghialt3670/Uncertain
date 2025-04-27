@@ -1,4 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UIElements;
@@ -14,12 +17,14 @@ public class LobbyUIController : MonoBehaviour
     public string m_PlayerIndexLabelName = "PlayerIndexLabel";
     public string m_AlienCountLabelName = "AlienCountLabel";
     public string m_HumanCountLabelName = "HumanCountLabel";
+    public string m_StartButtonName = "StartButton";
 
     private VisualElement m_Root;
     private ListView m_PlayerListView;
     private Button m_AddPlayerButton;
     private Label m_AlienCountLabel;
     private Label m_HumanCountLabel;
+    private Button m_StartButton;
 
     private IVisualElementScheduledItem m_PlayerListViewScrollAnimation;
 
@@ -31,17 +36,25 @@ public class LobbyUIController : MonoBehaviour
         m_AddPlayerButton = m_Root.Q<Button>(m_AddPlayerButtonName);
         m_AlienCountLabel = m_Root.Q<Label>(m_AlienCountLabelName);
         m_HumanCountLabel = m_Root.Q<Label>(m_HumanCountLabelName);
+        m_StartButton = m_Root.Q<Button>(m_StartButtonName);
 
         Assert.IsNotNull(m_Root, "m_Root is null");
         Assert.IsNotNull(m_PlayerListView, "PlayerListView is null");
         Assert.IsNotNull(m_AlienCountLabel, "AlienCountLabel is null");
         Assert.IsNotNull(m_HumanCountLabel, "HumanCountLabel is null");
+        Assert.IsNotNull(m_StartButton, "m_StartButton is null");
 
         SetUpPlayerListView();
         SetUpAddPlayerButton();
+        SetUpStartButton();
         UpdateAddPlayerButton();
         UpdateHumanCountLabel();
         UpdateAlienCountLabel();
+    }
+
+    private void Update()
+    {
+        m_AlienCountLabel.text = MatchSettingsManager.AlienCount.ToString();
     }
 
     private void SetUpPlayerListView()
@@ -124,6 +137,11 @@ public class LobbyUIController : MonoBehaviour
     private void UpdateHumanCountLabel()
     {
         m_HumanCountLabel.text = (MatchSettingsManager.PlayerCount - MatchSettingsManager.AlienCount).ToString();
+    }
+
+    private void SetUpStartButton()
+    {
+        m_StartButton.clicked += () => SceneUtils.LoadScene("RoleAssignmentScene");
     }
 
     private void SmoothScrollToBottom()

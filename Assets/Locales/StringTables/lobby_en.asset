@@ -120,6 +120,18 @@ MonoBehaviour:
     m_Localized: Select game mode
     m_Metadata:
       m_Items: []
+  - m_Id: 3602962423402496
+    m_Localized: Hold to reveal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3607389066678272
+    m_Localized: Player
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3686008770187264
+    m_Localized: Confirm
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

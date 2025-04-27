@@ -3,3 +3,10 @@
     -unity-font-style: bold;
     color: rgb(68, 138, 255);
 }
+
+#unity-text-input {
+    padding-left: 30px;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+}

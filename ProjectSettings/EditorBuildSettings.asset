@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LobbyScene.unity
     guid: bcae4fc770cb84844b422f8907f69333
+  - enabled: 1
+    path: Assets/Scenes/RoleAssignmentScene.unity
+    guid: 25c27909fc6099042bf103d2863e3cdf
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 996db01762343654bac6e53dc3d5e639, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 751de4f601f2ba24692f81e7af4d5b21, type: 2}

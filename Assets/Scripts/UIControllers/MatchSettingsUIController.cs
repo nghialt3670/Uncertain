@@ -10,6 +10,9 @@ public class MatchSettingsUIController : MonoBehaviour
 {
     public VisualTreeAsset m_MatchSettingsOverlay;
 
+    public string m_LanguagesEndpoint = "api/single-device/v1/languages";
+    public string m_TopicsEndpoint = "api/single-device/v1/topics";
+
     public string m_OpenButtonName = "MatchSettingsButton";
     public string m_LanguageDropdownFieldName = "LanguageDropdownField";
     public string m_TopicDropdownFieldName = "TopicDropdownField";
@@ -27,6 +30,8 @@ public class MatchSettingsUIController : MonoBehaviour
     private Label m_AlienCountLabel;
     private Button m_SaveButton;
     private Button m_CloseButton;
+
+    private IVisualElementScheduledItem m_SaveButtonMonitor;
 
     void Start()
     {
@@ -58,6 +63,9 @@ public class MatchSettingsUIController : MonoBehaviour
         m_OpenButton.RegisterCallback<ClickEvent>(e => ShowOverlay());
         m_SaveButton.clicked += SaveMatchSettings;
         m_CloseButton.clicked += HideOverlay;
+
+        StartSaveButtonMonitor();
+        LoadMatchSettings();
     }
 
     public void ShowOverlay()
@@ -74,15 +82,18 @@ public class MatchSettingsUIController : MonoBehaviour
 
     private void LoadMatchSettings()
     {
-        m_LanguageDropdownField.value = LocalizationUtils.ConvertCodeToNativeName(MatchSettingsManager.LanguageCode);
+        m_LanguageDropdownField.value = LocalizationUtils.ConvertCodeToNativeName(MatchSettingsManager.Locale);
+        m_TopicDropdownField.value = MatchSettingsManager.Topic;
         m_AlienCountSliderInt.lowValue = MatchSettingsManager.GetMinAlientCount();
         m_AlienCountSliderInt.highValue = MatchSettingsManager.GetMaxAlienCount();
         m_AlienCountSliderInt.value = MatchSettingsManager.AlienCount;
+        m_AlienCountSliderInt.SetEnabled((m_AlienCountSliderInt.lowValue != m_AlienCountSliderInt.highValue));
     }
 
     private void SaveMatchSettings()
     {
-        MatchSettingsManager.LanguageCode = LocalizationUtils.ConvertNativeNameToCode(m_LanguageDropdownField.value);
+        MatchSettingsManager.Locale = LocalizationUtils.ConvertNativeNameToCode(m_LanguageDropdownField.value);
+        MatchSettingsManager.Topic = m_TopicDropdownField.value;
         MatchSettingsManager.AlienCount = m_AlienCountSliderInt.value;
     }
 
@@ -91,13 +102,11 @@ public class MatchSettingsUIController : MonoBehaviour
         await FetchLanguageOptions();
         await FetchTopicOptions();
         m_LanguageDropdownField.RegisterValueChangedCallback(async e => await FetchTopicOptions());
-        LoadMatchSettings();
     }
 
     private async Task FetchLanguageOptions()
     {
-        string languagesEndpoint = "single-device/v1/languages";
-        var languagesResponse = await ApiUtils.GetAsync<ApiResponse<List<LanguageDetail>>>(languagesEndpoint);
+        var languagesResponse = await ApiUtils.GetAsync<ApiResponse<List<LanguageDetail>>>(m_LanguagesEndpoint);
 
         if (languagesResponse == null) return;
 
@@ -107,14 +116,14 @@ public class MatchSettingsUIController : MonoBehaviour
             .ToList();
 
         m_LanguageDropdownField.value = m_LanguageDropdownField.choices
-            .FirstOrDefault(choice => choice == LocalizationUtils.ConvertCodeToNativeName(MatchSettingsManager.LanguageCode)) ??
+            .FirstOrDefault(choice => choice == LocalizationUtils.ConvertCodeToNativeName(MatchSettingsManager.Locale)) ??
             m_LanguageDropdownField.choices.FirstOrDefault();
     }
 
     private async Task FetchTopicOptions()
     {
         string languageCode = LocalizationUtils.ConvertNativeNameToCode(m_LanguageDropdownField.value);
-        string topicsEndpoint = $"single-device/v1/topics?languageCode={languageCode}";
+        string topicsEndpoint = $"{m_TopicsEndpoint}?languageCode={languageCode}";
         var topicsResponse = await ApiUtils.GetAsync<ApiResponse<List<TopicDetail>>>(topicsEndpoint);
 
         if (topicsResponse == null) return;
@@ -123,18 +132,24 @@ public class MatchSettingsUIController : MonoBehaviour
             .Select(detail => detail.topicName)
             .ToList();
 
-        m_LanguageDropdownField.value = m_LanguageDropdownField.choices
+        m_TopicDropdownField.value = m_TopicDropdownField.choices
             .FirstOrDefault(choice => choice == MatchSettingsManager.Topic) ??
-            m_LanguageDropdownField.choices.FirstOrDefault();
+            m_TopicDropdownField.choices.FirstOrDefault();
     }
-}
 
-[Serializable]
-public class ApiResponse<T>
-{
-    public string code;
-    public string message;
-    public T data;
+    private void StartSaveButtonMonitor()
+    {
+        m_SaveButtonMonitor?.Pause();
+
+        m_SaveButtonMonitor = m_SaveButton.schedule.Execute(() =>
+        {
+            bool isLanguageChanged = LocalizationUtils.ConvertNativeNameToCode(m_LanguageDropdownField.value) != MatchSettingsManager.Locale;
+            bool isTopicChanged = m_TopicDropdownField.value != MatchSettingsManager.Topic;
+            bool isAlienCountChanged = m_AlienCountSliderInt.value != MatchSettingsManager.AlienCount;
+
+            m_SaveButton.SetEnabled(isLanguageChanged || isTopicChanged || isAlienCountChanged);
+        }).Every(10);
+    }
 }
 
 [Serializable]

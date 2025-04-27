@@ -105,6 +105,18 @@ MonoBehaviour:
     m_Key: select_game_mode
     m_Metadata:
       m_Items: []
+  - m_Id: 3602962423402496
+    m_Key: hold_to_reveal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3607389066678272
+    m_Key: player
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3686008770187264
+    m_Key: confirm
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

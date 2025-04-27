@@ -8,12 +8,12 @@ public static class MatchSettingsManager
     public const int MIN_ALIEN_COUNT = 1;
     public const float MAX_ALIEN_FRACTION = 1f / 3;
 
-    private const string DEFAULT_LANGUAGE_CODE = "en";
+    private const string DEFAULT_LOCALE = "en";
     private const string DEFAULT_TOPIC = "";
     private const int DEFAULT_PLAYER_COUNT = 3;
     private const int DEFAULT_ALIEN_COUNT = 1;
 
-    private const string LANGUAGE_CODE_KEY = "LanguageCode";
+    private const string LOCALE_KEY = "LanguageCode";
     private const string TOPIC_KEY = "Topic";
 
     public static List<Player> Players { get; set; }
@@ -28,12 +28,12 @@ public static class MatchSettingsManager
         AlienCount = DEFAULT_ALIEN_COUNT;
     }
 
-    public static string LanguageCode
+    public static string Locale
     {
-        get => PlayerPrefs.GetString(LANGUAGE_CODE_KEY, DEFAULT_LANGUAGE_CODE);
+        get => PlayerPrefs.GetString(LOCALE_KEY, DEFAULT_LOCALE);
         set
         {
-            PlayerPrefs.SetString(LANGUAGE_CODE_KEY, value);
+            PlayerPrefs.SetString(LOCALE_KEY, value);
             PlayerPrefs.Save();
         }
     }
@@ -75,9 +75,60 @@ public static class MatchSettingsManager
         return Mathf.FloorToInt(PlayerCount * MAX_ALIEN_FRACTION);
     }
 
+    public static void AssignRoles(string firstWord, string secondWord)
+    {
+        foreach (var player in Players)
+        {
+            player.roles = new List<Role>();
+            player.words = new List<string>();
+        }
+
+        List<int> alienIndexes = new List<int>();
+        while (alienIndexes.Count < AlienCount)
+        {
+            int randomIndex = Random.Range(0, Players.Count);
+            if (!alienIndexes.Contains(randomIndex))
+            {
+                alienIndexes.Add(randomIndex);
+            }
+        }
+
+        for (int i = 0; i < Players.Count; i++)
+        {
+            if (alienIndexes.Contains(i))
+            {
+                Players[i].roles.Add(Role.ALIEN);
+                Players[i].words.Add(secondWord);
+            }
+            else
+            {
+                Players[i].roles.Add(Role.HUMAN);
+                Players[i].words.Add(firstWord);
+            }
+        }
+    }
+
+    public static List<string> GetAssignedWords()
+    {
+        HashSet<string> allWords = new HashSet<string>();
+
+        foreach (var player in Players)
+        {
+            if (player.words != null)
+            {
+                foreach (var word in player.words)
+                {
+                    allWords.Add(word);
+                }
+            }
+        }
+
+        return new List<string>(allWords);
+    }
+
     public static void Reset()
     {
-        PlayerPrefs.DeleteKey(LANGUAGE_CODE_KEY);
+        PlayerPrefs.DeleteKey(LOCALE_KEY);
         PlayerPrefs.DeleteKey(TOPIC_KEY);
         PlayerPrefs.Save();
     }

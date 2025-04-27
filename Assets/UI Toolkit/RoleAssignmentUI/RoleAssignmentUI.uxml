@@ -1,0 +1,33 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/GlobalStyles.uss?fileID=7433441132597879392&amp;guid=706ca259c8ef8274e87f9ee07ba294bd&amp;type=3#GlobalStyles" />
+    <engine:VisualElement name="Root" enabled="true" class="background" style="flex-grow: 1; opacity: 1; overflow: visible; visibility: visible; position: absolute; left: 0; right: 0; top: 0; bottom: 0; max-width: none; align-items: stretch;">
+        <engine:VisualElement name="Header" style="flex-grow: 1; height: 10%; align-content: auto; justify-content: center; align-items: flex-start; padding-top: 50px; padding-right: 50px; padding-bottom: 50px; padding-left: 50px; align-self: stretch;">
+            <engine:VisualElement name="Container" style="flex-grow: 0; flex-direction: row; align-content: auto; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">
+                <engine:VisualElement name="GameSettingsButton" class="iconButton" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/UI/Icons/settings.png?fileID=2800000&amp;guid=da8f840270e86404fa4bb8f3cf59de4a&amp;type=3#settings&quot;);" />
+                <engine:VisualElement name="Spacer" style="flex-grow: 0; height: auto; width: 50px;" />
+                <engine:VisualElement name="GameRulesButton" class="iconButton" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/UI/Icons/info.png?fileID=2800000&amp;guid=580bc270d2c81034683cc00ab0c56a5d&amp;type=3#info&quot;);" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+        <engine:VisualElement name="Main" style="flex-grow: 1; height: 70%; padding-top: 50px; padding-right: 50px; padding-bottom: 50px; padding-left: 50px; align-items: stretch;">
+            <engine:VisualElement name="Container" style="flex-grow: 1; white-space: nowrap; -unity-text-align: upper-left; justify-content: flex-start; flex-direction: column;">
+                <engine:Label text="Label" name="PlayerLabel" style="-unity-text-align: upper-center;">
+                    <Bindings>
+                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(3607389066678272)" />
+                    </Bindings>
+                </engine:Label>
+                <engine:VisualElement name="Container" style="flex-grow: 1;">
+                    <engine:Label text="PlayerName" name="PlayerNameLabel" style="-unity-text-align: upper-center; font-size: 100px; -unity-font-style: bold; white-space: normal; position: absolute; align-self: center; bottom: auto; top: 0; flex-grow: 0; text-overflow: clip; max-width: 1000px;" />
+                </engine:VisualElement>
+            </engine:VisualElement>
+            <engine:VisualElement name="Container" style="flex-grow: 1; width: auto; align-items: center; justify-content: center;">
+                <engine:VisualElement name="RoleCard" style="flex-grow: 0; width: 500px; height: 700px; background-image: url(&quot;project://database/Assets/Art/UI/Icons/eye.png?fileID=2800000&amp;guid=e76684f0935a5304faa26ae862f837be&amp;type=3#eye&quot;); background-color: rgb(134, 153, 178); background-size: contain; border-top-width: 20px; border-right-width: 20px; border-bottom-width: 20px; border-left-width: 20px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px;" />
+                <engine:Label text="Label" name="InstructionLabel" style="-unity-font-style: italic;">
+                    <Bindings>
+                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(3602962423402496)" />
+                    </Bindings>
+                </engine:Label>
+            </engine:VisualElement>
+        </engine:VisualElement>
+        <engine:VisualElement name="Footer" style="flex-grow: 1; height: 20%; align-items: center; justify-content: center;" />
+    </engine:VisualElement>
+</engine:UXML>
