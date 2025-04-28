@@ -117,6 +117,10 @@ MonoBehaviour:
     m_Key: confirm
     m_Metadata:
       m_Items: []
+  - m_Id: 3912601958535168
+    m_Key: double_click_to_view
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

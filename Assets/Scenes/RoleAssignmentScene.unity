@@ -207,9 +207,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8808ab22375f6bb43b9a1454e7a653c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RoleRevealOverlayVTA: {fileID: 9197481963319205126, guid: ba0a154d571f92e48b6bba5b80bc671e, type: 3}
+  m_WordsEndpoint: single-device/v1/generate
+  m_LoadingOverLay: {fileID: 9197481963319205126, guid: 762dbcbd804583946b0885c1c03a858d, type: 3}
+  m_RoleRevealOverlay: {fileID: 9197481963319205126, guid: ba0a154d571f92e48b6bba5b80bc671e, type: 3}
+  m_PlayerNameLabelName: PlayerNameLabel
   m_RoleCardName: RoleCard
-  m_OverlayCloseButtonName: CloseButton
+  m_WordLabelName: WordLabel
+  m_RoleRevealOverlayCloseButtonName: CloseButton
 --- !u!1 &1338633497
 GameObject:
   m_ObjectHideFlags: 0

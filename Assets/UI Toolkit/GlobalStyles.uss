@@ -277,3 +277,10 @@ Button:disabled:hover {
 Label {
     font-size: 50px;
 }
+
+#Overlay > #Main > #Modal > VisualElement {
+    width: 120px;
+    height: 120px;
+    background-image: url("project://database/Assets/Art/UI/Icons/eye.png?fileID=2800000&guid=e76684f0935a5304faa26ae862f837be&type=3#eye");
+    position: absolute;
+}

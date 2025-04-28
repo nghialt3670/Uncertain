@@ -16,14 +16,16 @@
                     </Bindings>
                 </engine:Label>
                 <engine:VisualElement name="Container" style="flex-grow: 1;">
-                    <engine:Label text="PlayerName" name="PlayerNameLabel" style="-unity-text-align: upper-center; font-size: 100px; -unity-font-style: bold; white-space: normal; position: absolute; align-self: center; bottom: auto; top: 0; flex-grow: 0; text-overflow: clip; max-width: 1000px;" />
+                    <engine:Label text="PlayerName" name="PlayerNameLabel" style="-unity-text-align: upper-center; font-size: 80px; -unity-font-style: bold; white-space: normal; position: absolute; align-self: center; bottom: auto; top: 0; flex-grow: 0; text-overflow: clip; max-width: 1000px;" />
                 </engine:VisualElement>
             </engine:VisualElement>
             <engine:VisualElement name="Container" style="flex-grow: 1; width: auto; align-items: center; justify-content: center;">
-                <engine:VisualElement name="RoleCard" style="flex-grow: 0; width: 500px; height: 700px; background-image: url(&quot;project://database/Assets/Art/UI/Icons/eye.png?fileID=2800000&amp;guid=e76684f0935a5304faa26ae862f837be&amp;type=3#eye&quot;); background-color: rgb(134, 153, 178); background-size: contain; border-top-width: 20px; border-right-width: 20px; border-bottom-width: 20px; border-left-width: 20px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px;" />
-                <engine:Label text="Label" name="InstructionLabel" style="-unity-font-style: italic;">
+                <engine:VisualElement name="RoleCard" style="flex-grow: 0; width: 500px; height: 700px; background-image: none; background-color: rgb(134, 153, 178); background-size: contain; border-top-width: 6px; border-right-width: 6px; border-bottom-width: 6px; border-left-width: 6px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-left-radius: 40px; border-top-right-radius: 40px; border-bottom-right-radius: 40px; border-bottom-left-radius: 40px; align-items: center; justify-content: center;">
+                    <engine:VisualElement style="flex-grow: 0; background-image: url(&quot;project://database/Assets/Art/UI/Icons/eye.png?fileID=2800000&amp;guid=e76684f0935a5304faa26ae862f837be&amp;type=3#eye&quot;); -unity-background-scale-mode: scale-to-fit; width: 250px; height: 250px;" />
+                </engine:VisualElement>
+                <engine:Label text="Label" name="InstructionLabel" style="-unity-font-style: italic; font-size: 50px; margin-top: 30px;">
                     <Bindings>
-                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(3602962423402496)" />
+                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(3912601958535168)" />
                     </Bindings>
                 </engine:Label>
             </engine:VisualElement>

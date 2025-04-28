@@ -1,10 +1,14 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/GlobalStyles.uss?fileID=7433441132597879392&amp;guid=706ca259c8ef8274e87f9ee07ba294bd&amp;type=3#GlobalStyles" />
-    <engine:VisualElement name="Overlay" style="justify-content: center; align-items: stretch; align-content: auto; background-color: rgb(99, 99, 99); flex-grow: 1; height: 1920px; transition-property: opacity; transition-duration: 1s; transition-timing-function: ease-in-out-cubic;">
+    <engine:VisualElement name="Overlay" style="justify-content: center; align-items: stretch; align-content: auto; background-color: rgba(0, 0, 0, 0.59); flex-grow: 1; height: 1920px; transition-property: opacity; transition-duration: 1s; transition-timing-function: ease-in-out-cubic;">
         <engine:VisualElement name="Header" style="flex-grow: 1; height: 10%;" />
         <engine:VisualElement name="Main" style="flex-grow: 1; min-height: auto; height: 70%; justify-content: center;">
-            <engine:VisualElement name="Modal" style="flex-grow: 0; max-width: none; background-color: rgb(134, 153, 178); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; position: relative; right: auto; left: auto; top: auto; align-self: center; align-content: auto; justify-content: center; align-items: center; min-width: auto; min-height: auto; width: 750px; height: 1050px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; padding-top: 50px; padding-right: 50px; padding-bottom: 50px; padding-left: 50px;">
+            <engine:VisualElement name="Modal" style="flex-grow: 0; max-width: none; background-color: rgb(134, 153, 178); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; position: relative; right: auto; left: auto; top: auto; align-self: center; align-content: auto; justify-content: center; align-items: center; min-width: auto; min-height: auto; width: 750px; height: 1050px; border-top-left-radius: 60px; border-top-right-radius: 60px; border-bottom-right-radius: 60px; border-bottom-left-radius: 60px; padding-top: 50px; padding-right: 50px; padding-bottom: 50px; padding-left: 50px; border-top-width: 9px; border-right-width: 9px; border-bottom-width: 9px; border-left-width: 9px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);">
                 <engine:Label name="WordLabel" text="Word" style="font-size: 100px; white-space: normal; -unity-font-style: bold; -unity-text-align: middle-center;" />
+                <engine:VisualElement style="left: 10px; top: 10px; rotate: -45deg;" />
+                <engine:VisualElement style="top: 10px; right: 10px; rotate: 45deg;" />
+                <engine:VisualElement style="bottom: 10px; right: 10px; rotate: 135deg;" />
+                <engine:VisualElement style="left: 10px; bottom: 10px; rotate: -135deg;" />
             </engine:VisualElement>
         </engine:VisualElement>
         <engine:VisualElement name="Footer" style="flex-grow: 1; height: 20%; justify-content: flex-start; align-items: center;">

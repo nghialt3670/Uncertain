@@ -146,6 +146,10 @@ MonoBehaviour:
     m_Localized: "X\xE1c nh\u1EADn"
     m_Metadata:
       m_Items: []
+  - m_Id: 3912601958535168
+    m_Localized: "Nh\u1EA5n \u0111\xFAp \u0111\u1EC3 xem"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
