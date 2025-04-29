@@ -14,4 +14,5 @@ public class Player
     [SerializeField] public int score;
     [SerializeField] public List<string> words;
     [SerializeField] public List<Role> roles;
+    [SerializeField] public List<int> voteIndices;
 }

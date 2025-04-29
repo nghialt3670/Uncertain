@@ -10,8 +10,8 @@ using UnityEngine.Networking;
 /// </summary>
 public static class ApiUtils
 {
-    private static string BaseUrl = "https://52.79.250.196/";
-    private static readonly int DefaultTimeout = 10; // seconds
+    private static string BaseUrl = "https://52.79.250.196/api/";
+    private static readonly int DefaultTimeout = 20; // seconds
 
     #region GET Requests
 

@@ -1,0 +1,14 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/GlobalStyles.uss?fileID=7433441132597879392&amp;guid=706ca259c8ef8274e87f9ee07ba294bd&amp;type=3#GlobalStyles" />
+    <Style src="project://database/Assets/UI%20Toolkit/InGameUI/PlayerListItem.uss?fileID=7433441132597879392&amp;guid=8d0312cf4228bb6459a32cec7008ff80&amp;type=3#PlayerListItem" />
+    <engine:VisualElement name="Root" style="flex-grow: 1; padding-top: 10px; padding-left: 0; padding-bottom: 10px; background-color: rgb(140, 220, 198);">
+        <engine:VisualElement name="Container" enabled="true" focusable="true" style="flex-grow: 0; align-content: center; align-self: auto; height: auto; background-color: rgb(134, 192, 183); justify-content: center; padding-top: 20px; padding-right: 40px; padding-bottom: 20px; padding-left: 40px; font-size: 100px; flex-direction: row; align-items: center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; color: rgb(0, 0, 0); -unity-text-align: upper-left; border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-left-color: rgba(0, 0, 0, 0.08); border-right-color: rgba(0, 0, 0, 0.08); border-top-color: rgba(0, 0, 0, 0.08); border-bottom-color: rgba(0, 0, 0, 0.08);">
+            <engine:VisualElement name="Container" style="flex-grow: 0; flex-direction: row; min-width: 180px;">
+                <engine:Label text="#" style="font-size: 70px; -unity-font-style: bold; -unity-text-align: middle-center;" />
+                <engine:Label text="1" name="PlayerIndexLabel" style="font-size: 70px; -unity-font-style: bold; -unity-text-align: middle-center;" />
+            </engine:VisualElement>
+            <engine:Label text="Label" name="PlayerNameLabel" style="flex-grow: 1; -unity-text-align: upper-left; -unity-font-style: bold; font-size: 60px;" />
+            <engine:VisualElement name="VotePlayerIcon" enabled="true" class="iconButton voteIcon" style="width: 90px; height: 90px; background-position-x: center 0; -unity-background-scale-mode: scale-and-crop; margin-left: 50px;" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

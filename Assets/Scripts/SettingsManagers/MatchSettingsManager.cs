@@ -81,6 +81,7 @@ public static class MatchSettingsManager
         {
             player.roles = new List<Role>();
             player.words = new List<string>();
+            player.voteIndices = new List<int>();
         }
 
         List<int> alienIndexes = new List<int>();
@@ -95,6 +96,7 @@ public static class MatchSettingsManager
 
         for (int i = 0; i < Players.Count; i++)
         {
+            Players[i].voteIndices.Add(-1);
             if (alienIndexes.Contains(i))
             {
                 Players[i].roles.Add(Role.ALIEN);

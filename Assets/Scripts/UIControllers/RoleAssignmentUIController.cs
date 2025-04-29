@@ -1,66 +1,53 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Assertions;
 using UnityEngine.UIElements;
 
 public class RoleAssignmentUIController : MonoBehaviour
 {
-    public string m_WordsEndpoint = "single-device/v1/generate";
+    [SerializeField] VisualTreeAsset m_LoadingOverlay;
+    [SerializeField] VisualTreeAsset m_RoleRevealOverlay;
 
-    public VisualTreeAsset m_LoadingOverlay;
-    public VisualTreeAsset m_RoleRevealOverlay;
+    readonly string m_PlayerNameLabelName = "PlayerNameLabel";
+    readonly string m_RoleCardName = "RoleCard";
+    readonly string m_WordLabelName = "WordLabel";
+    readonly string m_RoleRevealOverlayCloseButtonName = "CloseButton";
 
-    public string m_PlayerNameLabelName = "PlayerNameLabel";
-    public string m_RoleCardName = "RoleCard";
-    public string m_WordLabelName = "WordLabel";
-    public string m_RoleRevealOverlayCloseButtonName = "CloseButton";
+    VisualElement m_RootElement;
+    VisualElement m_LoadingOverlayELement;
+    VisualElement m_RoleRevealOverlayElement;
 
-    private VisualElement m_Root;
-    private VisualElement m_LoadingOverlayRoot;
-    private VisualElement m_RoleRevealOverlayRoot;
+    Label m_PlayerNameLabel;
+    VisualElement m_RoleCard;
+    Label m_WordLabel;
+    Button m_RoleRevealOverlayCloseButton;
 
-    private Label m_PlayerNameLabel;
-    private VisualElement m_RoleCard;
-    private Label m_WordLabel;
-    private Button m_RoleRevealOverlayCloseButton;
-
-    private float doubleClickThreshold = 0.3f;
-    private float lastClickTime = -1f;
-    private List<Player> m_Players;
-    private Player m_CurrentPlayer;
+    float doubleClickThreshold = 0.3f;
+    float lastClickTime = -1f;
+    List<Player> m_UnassignedPlayers;
+    Player m_CurrentPlayer;
 
     void Start()
     {
-        m_Root = GetComponent<UIDocument>().rootVisualElement;
+        m_RootElement = GetComponent<UIDocument>().rootVisualElement;
 
-        m_LoadingOverlayRoot = m_LoadingOverlay.CloneTree();
-        m_LoadingOverlayRoot.StretchToParentSize();
+        m_LoadingOverlayELement = m_LoadingOverlay.CloneTree();
+        m_LoadingOverlayELement.StretchToParentSize();
 
-        m_RoleRevealOverlayRoot = m_RoleRevealOverlay.CloneTree();
-        m_RoleRevealOverlayCloseButton = m_RoleRevealOverlayRoot.Q<Button>(m_RoleRevealOverlayCloseButtonName);
-        m_RoleRevealOverlayRoot.StretchToParentSize();
+        m_RoleRevealOverlayElement = m_RoleRevealOverlay.CloneTree();
+        m_RoleRevealOverlayCloseButton = m_RoleRevealOverlayElement.Q<Button>(m_RoleRevealOverlayCloseButtonName);
+        m_RoleRevealOverlayElement.StretchToParentSize();
 
-        m_PlayerNameLabel = m_Root.Q<Label>(m_PlayerNameLabelName);
-        m_RoleCard = m_Root.Q<VisualElement>(m_RoleCardName);
-        m_WordLabel = m_RoleRevealOverlayRoot.Q<Label>(m_WordLabelName);
-
-        Assert.IsNotNull(m_Root, "m_Root is null");
-        Assert.IsNotNull(m_RoleRevealOverlayRoot, "m_OverlayRoot is null");
-        Assert.IsNotNull(m_RoleRevealOverlayCloseButton, "m_RoleRevealOverlayCloseButton is null");
-        Assert.IsNotNull(m_PlayerNameLabel, "m_PlayerNameLabel is null");
-        Assert.IsNotNull(m_RoleCard, "m_RoleCard is null");
-        Assert.IsNotNull(m_WordLabel, "m_WordLabel is null");
+        m_PlayerNameLabel = m_RootElement.Q<Label>(m_PlayerNameLabelName);
+        m_RoleCard = m_RootElement.Q<VisualElement>(m_RoleCardName);
+        m_WordLabel = m_RoleRevealOverlayElement.Q<Label>(m_WordLabelName);
 
         m_RoleCard.RegisterCallback<PointerDownEvent>(OnRoleCardPointerDown);
-        m_RoleRevealOverlayCloseButton.clicked += () => SetUpCurrentPlayer();
-        m_RoleRevealOverlayCloseButton.clicked += () => HideOverlay(m_RoleRevealOverlayRoot);
+        m_RoleRevealOverlayCloseButton.clicked += () => SetUpNextPlayer();
+        m_RoleRevealOverlayCloseButton.clicked += () => UIToolkitUtils.HideOverlay(m_RoleRevealOverlayElement);
 
-        m_Players = MatchSettingsManager.Players.OrderBy(x => UnityEngine.Random.value).ToList();
-
-        _ = AssignRoles();
+        m_UnassignedPlayers = MatchSettingsManager.Players.OrderBy(x => Random.value).ToList();
+        SetUpNextPlayer();
     }
 
     private void OnRoleCardPointerDown(PointerDownEvent evt)
@@ -70,7 +57,7 @@ public class RoleAssignmentUIController : MonoBehaviour
         if (lastClickTime > 0 && (currentTime - lastClickTime) <= doubleClickThreshold)
         {
             m_WordLabel.text = m_CurrentPlayer.words[^1];
-            ShowOverlay(m_RoleRevealOverlayRoot);
+            UIToolkitUtils.ShowOverlay(m_RootElement, m_RoleRevealOverlayElement);
             lastClickTime = -1f; 
         }
         else
@@ -79,67 +66,15 @@ public class RoleAssignmentUIController : MonoBehaviour
         }
     }
 
-    private void ShowOverlay(VisualElement overlayRoot)
+    private void SetUpNextPlayer()
     {
-        if (m_Root.Contains(overlayRoot)) return;
-        m_Root.Add(overlayRoot);
-    }
-
-    private void HideOverlay(VisualElement overlayRoot)
-    {
-        m_Root.Remove(overlayRoot);
-    }
-
-    private void SetUpCurrentPlayer()
-    {
-        if (m_Players.Count == 0)
+        if (m_UnassignedPlayers.Count == 0)
         {
-            SceneUtils.LoadPreviousScene();
+            SceneUtils.LoadScene("InGameScene");
             return;
         }
-        m_CurrentPlayer = m_Players[^1];
-        m_Players.RemoveAt(m_Players.Count - 1);
+        m_CurrentPlayer = m_UnassignedPlayers[^1];
+        m_UnassignedPlayers.RemoveAt(m_UnassignedPlayers.Count - 1);
         m_PlayerNameLabel.text = m_CurrentPlayer.name;
     }
-
-    private async Task AssignRoles()
-    {
-        ShowOverlay(m_LoadingOverlayRoot);
-
-        WordsRequest wordsRequest = new()
-        {
-            domain=MatchSettingsManager.Topic,
-            language=LocalizationUtils.ConvertCodeToNativeName(MatchSettingsManager.Locale),
-            exceptedPairs=new List<WordPair>(),
-        };
-        var wordsResponse = await ApiUtils.PostAsync<ApiResponse<WordsData>>(m_WordsEndpoint, wordsRequest);
-        Debug.Log(wordsResponse.ToString());
-
-        if (wordsResponse == null) return;
-
-        MatchSettingsManager.AssignRoles(wordsResponse.data.wordPair.first, wordsResponse.data.wordPair.second);
-        SetUpCurrentPlayer();
-        HideOverlay(m_LoadingOverlayRoot);
-    }
-}
-
-[Serializable]
-public class WordsRequest
-{
-    public string domain;
-    public string language;
-    public List<WordPair> exceptedPairs;
-}
-
-[Serializable]
-public class WordsData
-{
-    public WordPair wordPair;
-}
-
-[Serializable]
-public class WordPair
-{
-    public string first;
-    public string second;
 }

@@ -1,109 +1,79 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using UnityEngine;
-using UnityEngine.Assertions;
 using UnityEngine.UIElements;
 
 public class LobbyUIController : MonoBehaviour
 {
-    public VisualTreeAsset m_PlayerListItemVTA;
+    [SerializeField] VisualTreeAsset m_PlayerListItem;
 
-    public string m_PlayerListViewName = "PlayerListView";
-    public string m_PlayerNameTextFieldName = "PlayerNameTextField";
-    public string m_AddPlayerButtonName = "AddPlayerButton";
-    public string m_RemovePlayerButtonName = "RemovePlayerButton";
-    public string m_PlayerIndexLabelName = "PlayerIndexLabel";
-    public string m_AlienCountLabelName = "AlienCountLabel";
-    public string m_HumanCountLabelName = "HumanCountLabel";
-    public string m_StartButtonName = "StartButton";
+    readonly string m_NextSceneName = "RoleAssignmentScene";
+    readonly string m_PlayerListViewName = "PlayerListView";
+    readonly string m_PlayerNameTextFieldName = "PlayerNameTextField";
+    readonly string m_AddPlayerButtonName = "AddPlayerButton";
+    readonly string m_RemovePlayerButtonName = "RemovePlayerButton";
+    readonly string m_PlayerIndexLabelName = "PlayerIndexLabel";
+    readonly string m_AlienCountLabelName = "AlienCountLabel";
+    readonly string m_HumanCountLabelName = "HumanCountLabel";
+    readonly string m_StartButtonName = "StartButton";
 
-    private VisualElement m_Root;
-    private ListView m_PlayerListView;
-    private Button m_AddPlayerButton;
-    private Label m_AlienCountLabel;
-    private Label m_HumanCountLabel;
-    private Button m_StartButton;
-
-    private IVisualElementScheduledItem m_PlayerListViewScrollAnimation;
+    VisualElement m_RootElement;
+    ListView m_PlayerListView;
+    Button m_AddPlayerButton;
+    Label m_AlienCountLabel;
+    Label m_HumanCountLabel;
+    Button m_StartButton;
 
     private void Start()
     {
-        m_Root = GetComponent<UIDocument>().rootVisualElement;
+        m_RootElement = GetComponent<UIDocument>().rootVisualElement;
 
-        m_PlayerListView = m_Root.Q<ListView>(m_PlayerListViewName);
-        m_AddPlayerButton = m_Root.Q<Button>(m_AddPlayerButtonName);
-        m_AlienCountLabel = m_Root.Q<Label>(m_AlienCountLabelName);
-        m_HumanCountLabel = m_Root.Q<Label>(m_HumanCountLabelName);
-        m_StartButton = m_Root.Q<Button>(m_StartButtonName);
+        m_PlayerListView = m_RootElement.Q<ListView>(m_PlayerListViewName);
+        m_AddPlayerButton = m_RootElement.Q<Button>(m_AddPlayerButtonName);
+        m_AlienCountLabel = m_RootElement.Q<Label>(m_AlienCountLabelName);
+        m_HumanCountLabel = m_RootElement.Q<Label>(m_HumanCountLabelName);
+        m_StartButton = m_RootElement.Q<Button>(m_StartButtonName);
 
-        Assert.IsNotNull(m_Root, "m_Root is null");
-        Assert.IsNotNull(m_PlayerListView, "PlayerListView is null");
-        Assert.IsNotNull(m_AlienCountLabel, "AlienCountLabel is null");
-        Assert.IsNotNull(m_HumanCountLabel, "HumanCountLabel is null");
-        Assert.IsNotNull(m_StartButton, "m_StartButton is null");
+        m_PlayerListView.makeItem = m_PlayerListItem.CloneTree;
+        m_PlayerListView.bindItem = BindPlayerItem;
+        m_PlayerListView.itemsSource = MatchSettingsManager.Players;
 
-        SetUpPlayerListView();
-        SetUpAddPlayerButton();
-        SetUpStartButton();
-        UpdateAddPlayerButton();
-        UpdateHumanCountLabel();
-        UpdateAlienCountLabel();
+        m_AddPlayerButton.clicked += AddPlayer;
+        m_AddPlayerButton.clicked += UpdateUIElements;
+        m_AddPlayerButton.clicked += () => UIToolkitUtils.SmoothScrollToBottom(m_PlayerListView.Q<ScrollView>());
+
+        m_StartButton.clicked += () => SceneUtils.LoadScene(m_NextSceneName);
+
+        UpdateUIElements();
     }
 
-    private void Update()
+    void Update()
     {
         m_AlienCountLabel.text = MatchSettingsManager.AlienCount.ToString();
     }
 
-    private void SetUpPlayerListView()
+    void BindPlayerItem(VisualElement element, int index)
     {
-        VisualElement makePlayerItem()
+        TextField playerNameTextField = element.Q<TextField>(m_PlayerNameTextFieldName);
+        Player player = MatchSettingsManager.Players.ElementAt(index);
+
+        if (player != null)
         {
-            return m_PlayerListItemVTA.CloneTree();
+            playerNameTextField.value = player.name;
+            playerNameTextField.maxLength = GameSettingsManager.PLAYER_NAME_MAX_LENGTH;
+            playerNameTextField.RegisterValueChangedCallback(e => player.name = e.newValue);
         }
 
-        void bindPlayerItem(VisualElement element, int index)
-        {
-            TextField playerNameTextField = element.Q<TextField>(m_PlayerNameTextFieldName);
-            Player player = MatchSettingsManager.Players.ElementAt(index);
+        VisualElement removePlayerButton = element.Q(m_RemovePlayerButtonName);
+        removePlayerButton.SetEnabled(MatchSettingsManager.CanRemovePlayer());
+        removePlayerButton.RegisterCallback<ClickEvent>(e => RemovePlayer(index));
+        removePlayerButton.RegisterCallback<ClickEvent>(e => UpdateUIElements());
+        removePlayerButton.RegisterCallback<ClickEvent>(e => removePlayerButton.SetEnabled(MatchSettingsManager.CanRemovePlayer()));
 
-            if (player != null)
-            {
-                playerNameTextField.value = player.name;
-                playerNameTextField.maxLength = GameSettingsManager.PLAYER_NAME_MAX_LENGTH;
-                playerNameTextField.RegisterValueChangedCallback(e => player.name = e.newValue);
-            }
-
-            VisualElement removePlayerButton = element.Q(m_RemovePlayerButtonName);
-            removePlayerButton.SetEnabled(MatchSettingsManager.CanRemovePlayer());
-            removePlayerButton.RegisterCallback<ClickEvent>(e => RemovePlayer(index));
-            removePlayerButton.RegisterCallback<ClickEvent>(e => UpdateHumanCountLabel());
-            removePlayerButton.RegisterCallback<ClickEvent>(e => UpdateAddPlayerButton());
-            removePlayerButton.RegisterCallback<ClickEvent>(e => UpdatePlayerListView());
-            removePlayerButton.RegisterCallback<ClickEvent>(e => removePlayerButton.SetEnabled(MatchSettingsManager.CanRemovePlayer()));
-
-            Label playerIndexLabel = element.Q<Label>(m_PlayerIndexLabelName);
-            playerIndexLabel.text = (index + 1).ToString();
-        }
-
-        m_PlayerListView.itemsSource = MatchSettingsManager.Players;
-        m_PlayerListView.makeItem = makePlayerItem;
-        m_PlayerListView.bindItem = bindPlayerItem;
-        m_PlayerListView.Rebuild();
+        Label playerIndexLabel = element.Q<Label>(m_PlayerIndexLabelName);
+        playerIndexLabel.text = (index + 1).ToString();
     }
 
-    private void SetUpAddPlayerButton()
-    {
-        m_AddPlayerButton.clicked += AddPlayer;
-        m_AddPlayerButton.clicked += UpdateHumanCountLabel;
-        m_AddPlayerButton.clicked += SmoothScrollToBottom;
-        m_AddPlayerButton.clicked += UpdateAddPlayerButton;
-        m_AddPlayerButton.clicked += UpdatePlayerListView;
-    }
-
-    private void AddPlayer()
+    void AddPlayer()
     {
         if (MatchSettingsManager.CanAddPlayer())
         {
@@ -111,7 +81,7 @@ public class LobbyUIController : MonoBehaviour
         }
     }
 
-    private void RemovePlayer(int index)
+    void RemovePlayer(int index)
     {
         if (MatchSettingsManager.CanRemovePlayer())
         {
@@ -119,54 +89,11 @@ public class LobbyUIController : MonoBehaviour
         }
     }
 
-    private void UpdatePlayerListView()
-    {
-        m_PlayerListView.Rebuild();
-    }
-
-    private void UpdateAddPlayerButton()
+    void UpdateUIElements()
     {
        m_AddPlayerButton.SetEnabled(MatchSettingsManager.CanAddPlayer());
-    }
-
-    private void UpdateAlienCountLabel()
-    {
-        m_AlienCountLabel.text = MatchSettingsManager.AlienCount.ToString();
-    }
-
-    private void UpdateHumanCountLabel()
-    {
-        m_HumanCountLabel.text = (MatchSettingsManager.PlayerCount - MatchSettingsManager.AlienCount).ToString();
-    }
-
-    private void SetUpStartButton()
-    {
-        m_StartButton.clicked += () => SceneUtils.LoadScene("RoleAssignmentScene");
-    }
-
-    private void SmoothScrollToBottom()
-    {
-        ScrollView scrollView = m_PlayerListView.Q<ScrollView>();
-        float duration = 0.3f;
-        float elapsed = 0f;
-        float startValue = scrollView.scrollOffset.y;
-        float endValue = scrollView.contentContainer.layout.height;
-
-        endValue = Mathf.Max(0, endValue);
-
-        m_PlayerListViewScrollAnimation?.Pause();
-
-        m_PlayerListViewScrollAnimation = scrollView.schedule.Execute(() =>
-        {
-            elapsed += Time.deltaTime;
-            float t = Mathf.Clamp01(elapsed / duration);
-            float newY = Mathf.Lerp(startValue, endValue, t);
-            scrollView.scrollOffset = new Vector2(0, newY);
-
-            if (t >= 1f)
-            {
-                m_PlayerListViewScrollAnimation?.Pause();
-            }
-        }).Every(10);
+       m_AlienCountLabel.text = MatchSettingsManager.AlienCount.ToString();
+       m_HumanCountLabel.text = (MatchSettingsManager.PlayerCount - MatchSettingsManager.AlienCount).ToString();
+       m_PlayerListView.Rebuild();
     }
 }

@@ -105,7 +105,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3199216124088320
-    m_Localized: Return
+    m_Localized: Cancel
     m_Metadata:
       m_Items: []
   - m_Id: 3208473003347968
@@ -134,6 +134,22 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 3912601958535168
     m_Localized: Double-click to view
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4328135036424192
+    m_Localized: Reload
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4328466537435136
+    m_Localized: Failure
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4367556645408768
+    m_Localized: Confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4368308419874816
+    m_Localized: will be eliminated
     m_Metadata:
       m_Items: []
   references:

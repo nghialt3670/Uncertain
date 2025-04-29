@@ -1,0 +1,32 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/GlobalStyles.uss?fileID=7433441132597879392&amp;guid=706ca259c8ef8274e87f9ee07ba294bd&amp;type=3#GlobalStyles" />
+    <engine:VisualElement name="Root" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.39); align-items: center; justify-content: center;">
+        <engine:VisualElement name="Modal" style="flex-grow: 0; background-color: rgb(180, 180, 180); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; position: relative; right: auto; left: auto; top: auto; align-self: center; align-content: auto; justify-content: space-between; align-items: stretch;">
+            <engine:VisualElement name="Header" style="flex-grow: 0; height: auto; white-space: normal; flex-direction: row; align-self: auto; align-items: center; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px;">
+                <engine:VisualElement name="FailureIcon" class="icon" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/Art/UI/Icons/delete.png?fileID=2800000&amp;guid=9617ce8de55b97546a21b14aa85fb2e2&amp;type=3#delete&quot;);" />
+                <engine:VisualElement name="Spacer" style="flex-grow: 0; width: 30px;" />
+                <engine:Label text="Settings" name="FailureLabel" style="font-size: 60px; -unity-font-style: bold; -unity-text-align: middle-left;">
+                    <Bindings>
+                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(4328466537435136)" />
+                    </Bindings>
+                </engine:Label>
+            </engine:VisualElement>
+            <engine:VisualElement name="Main" style="flex-grow: 0; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px;">
+                <engine:Label text="Failure Message" name="MessageLabel" style="-unity-text-align: upper-center; -unity-font-style: normal; font-size: 50px; white-space: normal;" />
+            </engine:VisualElement>
+            <engine:VisualElement name="Footer" style="flex-grow: 0; height: auto; flex-direction: row; align-items: center; justify-content: flex-end; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px;">
+                <engine:Button text="Save" name="ReloadButton" class="button">
+                    <Bindings>
+                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(4328135036424192)" />
+                    </Bindings>
+                </engine:Button>
+                <engine:VisualElement name="Spacer" style="height: auto; width: 30px;" />
+                <engine:Button text="Close" name="ReturnButton" class="button">
+                    <Bindings>
+                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(3199216124088320)" />
+                    </Bindings>
+                </engine:Button>
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

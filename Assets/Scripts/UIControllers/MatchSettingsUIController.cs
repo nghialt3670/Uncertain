@@ -10,74 +10,53 @@ public class MatchSettingsUIController : MonoBehaviour
 {
     public VisualTreeAsset m_MatchSettingsOverlay;
 
-    public string m_LanguagesEndpoint = "api/single-device/v1/languages";
-    public string m_TopicsEndpoint = "api/single-device/v1/topics";
+    readonly string m_LanguagesEndpoint = "single-device/v1/languages";
+    readonly string m_TopicsEndpoint = "single-device/v1/topics";
+    readonly string m_OpenButtonName = "MatchSettingsButton";
+    readonly string m_LanguageDropdownFieldName = "LanguageDropdownField";
+    readonly string m_TopicDropdownFieldName = "TopicDropdownField";
+    readonly string m_AlienCountSliderName = "AlienCountSlider";
+    readonly string m_AlienCountLabelName = "AlienCountLabel";
+    readonly string m_SaveButtonName = "SaveButton";
+    readonly string m_CloseButtonName = "CloseButton";
 
-    public string m_OpenButtonName = "MatchSettingsButton";
-    public string m_LanguageDropdownFieldName = "LanguageDropdownField";
-    public string m_TopicDropdownFieldName = "TopicDropdownField";
-    public string m_AlienCountSliderName = "AlienCountSlider";
-    public string m_AlienCountLabelName = "AlienCountLabel";
-    public string m_SaveButtonName = "SaveButton";
-    public string m_CloseButtonName = "CloseButton";
-
-    private VisualElement m_BaseRoot;
-    private VisualElement m_OpenButton;
-    private VisualElement m_OverlayRoot;
-    private DropdownField m_LanguageDropdownField;
-    private DropdownField m_TopicDropdownField;
-    private SliderInt m_AlienCountSliderInt;
-    private Label m_AlienCountLabel;
-    private Button m_SaveButton;
-    private Button m_CloseButton;
-
-    private IVisualElementScheduledItem m_SaveButtonMonitor;
+    VisualElement m_RootElement;
+    Button m_OpenButton;
+    VisualElement m_MatchSettingsOverlayElement;
+    DropdownField m_LanguageDropdownField;
+    DropdownField m_TopicDropdownField;
+    SliderInt m_AlienCountSliderInt;
+    Label m_AlienCountLabel;
+    Button m_SaveButton;
+    Button m_CloseButton;
 
     void Start()
     {
-        m_BaseRoot = GetComponent<UIDocument>().rootVisualElement;
-        m_OpenButton = m_BaseRoot.Q<VisualElement>(m_OpenButtonName);
-
-        m_OverlayRoot = m_MatchSettingsOverlay.CloneTree();
-        m_OverlayRoot.StretchToParentSize();
-
-        m_LanguageDropdownField = m_OverlayRoot.Q<DropdownField>(m_LanguageDropdownFieldName);
-        m_TopicDropdownField = m_OverlayRoot.Q<DropdownField>(m_TopicDropdownFieldName);
-        m_AlienCountSliderInt = m_OverlayRoot.Q<SliderInt>(m_AlienCountSliderName);
-        m_AlienCountLabel = m_OverlayRoot.Q<Label>(m_AlienCountLabelName);
-        m_SaveButton = m_OverlayRoot.Q<Button>(m_SaveButtonName);
-        m_CloseButton = m_OverlayRoot.Q<Button>(m_CloseButtonName);
-
-        Assert.IsNotNull(m_OpenButton, "m_OpenButton is null");
-        Assert.IsNotNull(m_LanguageDropdownField, "m_LanguageDropdownField is null");
-        Assert.IsNotNull(m_TopicDropdownField, "m_TopicDropdownField is null");
-        Assert.IsNotNull(m_AlienCountSliderInt, "m_AlienCountSliderInt is null");
-        Assert.IsNotNull(m_AlienCountLabel, "m_AlienCountLabel is null");
-        Assert.IsNotNull(m_SaveButton, "m_SaveButton is null");
-        Assert.IsNotNull(m_CloseButton, "m_CloseButton is null");
+        m_RootElement = GetComponent<UIDocument>().rootVisualElement;
+        m_OpenButton = m_RootElement.Q<Button>(m_OpenButtonName);
+        m_MatchSettingsOverlayElement = m_MatchSettingsOverlay.CloneTree();
+        m_LanguageDropdownField = m_MatchSettingsOverlayElement.Q<DropdownField>(m_LanguageDropdownFieldName);
+        m_TopicDropdownField = m_MatchSettingsOverlayElement.Q<DropdownField>(m_TopicDropdownFieldName);
+        m_AlienCountSliderInt = m_MatchSettingsOverlayElement.Q<SliderInt>(m_AlienCountSliderName);
+        m_AlienCountLabel = m_MatchSettingsOverlayElement.Q<Label>(m_AlienCountLabelName);
+        m_SaveButton = m_MatchSettingsOverlayElement.Q<Button>(m_SaveButtonName);
+        m_CloseButton = m_MatchSettingsOverlayElement.Q<Button>(m_CloseButtonName);
 
         _ = FetchFieldOptions();
 
         m_AlienCountSliderInt.RegisterValueChangedCallback(e => m_AlienCountLabel.text = e.newValue.ToString());
         m_AlienCountLabel.text = m_AlienCountSliderInt.value.ToString();
-        m_OpenButton.RegisterCallback<ClickEvent>(e => ShowOverlay());
+
+        m_OpenButton.clicked += LoadMatchSettings;
+        m_OpenButton.clicked += () => UIToolkitUtils.ShowOverlay(m_RootElement, m_MatchSettingsOverlayElement);
+
         m_SaveButton.clicked += SaveMatchSettings;
-        m_CloseButton.clicked += HideOverlay;
 
-        StartSaveButtonMonitor();
-        LoadMatchSettings();
-    }
+        m_CloseButton.clicked += LoadMatchSettings;
+        m_CloseButton.clicked += () => UIToolkitUtils.HideOverlay(m_MatchSettingsOverlayElement);
 
-    public void ShowOverlay()
-    {
+        UIToolkitUtils.MonitorElementEnablement(m_SaveButton, IsSettingsChanged);
         LoadMatchSettings();
-        m_BaseRoot.Add(m_OverlayRoot);
-    }
-
-    public void HideOverlay()
-    {
-        LoadMatchSettings();
-        m_BaseRoot.Remove(m_OverlayRoot);
     }
 
     private void LoadMatchSettings()
@@ -137,18 +116,13 @@ public class MatchSettingsUIController : MonoBehaviour
             m_TopicDropdownField.choices.FirstOrDefault();
     }
 
-    private void StartSaveButtonMonitor()
+    bool IsSettingsChanged()
     {
-        m_SaveButtonMonitor?.Pause();
+        bool isLanguageChanged = LocalizationUtils.ConvertNativeNameToCode(m_LanguageDropdownField.value) != MatchSettingsManager.Locale;
+        bool isTopicChanged = m_TopicDropdownField.value != MatchSettingsManager.Topic;
+        bool isAlienCountChanged = m_AlienCountSliderInt.value != MatchSettingsManager.AlienCount;
 
-        m_SaveButtonMonitor = m_SaveButton.schedule.Execute(() =>
-        {
-            bool isLanguageChanged = LocalizationUtils.ConvertNativeNameToCode(m_LanguageDropdownField.value) != MatchSettingsManager.Locale;
-            bool isTopicChanged = m_TopicDropdownField.value != MatchSettingsManager.Topic;
-            bool isAlienCountChanged = m_AlienCountSliderInt.value != MatchSettingsManager.AlienCount;
-
-            m_SaveButton.SetEnabled(isLanguageChanged || isTopicChanged || isAlienCountChanged);
-        }).Every(10);
+        return isLanguageChanged || isTopicChanged || isAlienCountChanged;
     }
 }
 

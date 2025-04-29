@@ -4,44 +4,37 @@ using UnityEngine.UIElements;
 
 public class GameSettingsUIController : MonoBehaviour
 {
-    public VisualTreeAsset m_GameSettingsOverlay;
+    [SerializeField] VisualTreeAsset m_GameSettingsOverlay;
 
-    public string m_OpenButtonName = "GameSettingsButton";
-    public string m_LanguageDropdownFieldName = "LanguageDropdownField";
-    public string m_VolumeSliderName = "VolumeSlider";
-    public string m_ReturnButtonName = "ReturnButton";
-    public string m_SaveButtonName = "SaveButton";
-    public string m_CloseButtonName = "CloseButton";
+    readonly string m_OpenButtonName = "GameSettingsButton";
+    readonly string m_LanguageDropdownFieldName = "LanguageDropdownField";
+    readonly string m_VolumeSliderName = "VolumeSlider";
+    readonly string m_ReturnButtonName = "ReturnButton";
+    readonly string m_SaveButtonName = "SaveButton";
+    readonly string m_CloseButtonName = "CloseButton";
 
-    private VisualElement m_BaseRoot;
-    private VisualElement m_OpenButton;
-    private VisualElement m_OverlayRoot;
-    private DropdownField m_LanguageDropdownField;
-    private Slider m_VolumeSlider;
-    private Button m_ReturnButton;
-    private Button m_SaveButton;
-    private Button m_CloseButton;
-
-    private IVisualElementScheduledItem m_SaveButtonMonitor;
-
+    VisualElement m_RootElement;
+    VisualElement m_OpenButton;
+    VisualElement m_OverlayElement;
+    DropdownField m_LanguageDropdownField;
+    Slider m_VolumeSlider;
+    Button m_ReturnButton;
+    Button m_SaveButton;
+    Button m_CloseButton;
+    
     void Start()
     {
-        LocalizationSettings.InitializationOperation.WaitForCompletion();
-
-        m_BaseRoot = GetComponent<UIDocument>().rootVisualElement;
-        m_OpenButton = m_BaseRoot.Q<VisualElement>(m_OpenButtonName);
-
-        m_OverlayRoot = m_GameSettingsOverlay.CloneTree();
-        m_OverlayRoot.StretchToParentSize();
-
-        m_LanguageDropdownField = m_OverlayRoot.Q<DropdownField>(m_LanguageDropdownFieldName);
-        m_VolumeSlider = m_OverlayRoot.Q<Slider>(m_VolumeSliderName);
-
-        m_ReturnButton = m_OverlayRoot.Q<Button>(m_ReturnButtonName);
-        m_SaveButton = m_OverlayRoot.Q<Button>(m_SaveButtonName);
-        m_CloseButton = m_OverlayRoot.Q<Button>(m_CloseButtonName);
-
-        m_OpenButton.RegisterCallback<ClickEvent>(e => ShowOverlay());
+        m_RootElement = GetComponent<UIDocument>().rootVisualElement;
+        m_OverlayElement = m_GameSettingsOverlay.CloneTree();
+        m_OpenButton = m_RootElement.Q<VisualElement>(m_OpenButtonName);
+        m_LanguageDropdownField = m_OverlayElement.Q<DropdownField>(m_LanguageDropdownFieldName);
+        m_VolumeSlider = m_OverlayElement.Q<Slider>(m_VolumeSliderName);
+        m_ReturnButton = m_OverlayElement.Q<Button>(m_ReturnButtonName);
+        m_SaveButton = m_OverlayElement.Q<Button>(m_SaveButtonName);
+        m_CloseButton = m_OverlayElement.Q<Button>(m_CloseButtonName);
+        
+        m_OpenButton.RegisterCallback<ClickEvent>(e => LoadGameSettings());
+        m_OpenButton.RegisterCallback<ClickEvent>(e => UIToolkitUtils.ShowOverlay(m_RootElement, m_OverlayElement));
 
         m_LanguageDropdownField.RegisterCallback<ChangeEvent<string>>(e =>
         {
@@ -51,26 +44,18 @@ public class GameSettingsUIController : MonoBehaviour
                 LocalizationUtils.SetLocaleByNativeName(e.newValue);
             }
         });
+
         m_VolumeSlider.RegisterValueChangedCallback(e => AudioListener.volume = e.newValue);
 
-        m_ReturnButton.clicked += () => SceneUtils.LoadPreviousScene();
+        m_ReturnButton.clicked += SceneUtils.Return;
+
         m_SaveButton.clicked += SaveGameSettings;
-        m_CloseButton.clicked += HideOverlay;
 
-        StartSaveButtonMonitor();
-        LoadGameSettings();
-    }
+        m_CloseButton.clicked += LoadGameSettings;
+        m_CloseButton.clicked += () => UIToolkitUtils.HideOverlay(m_OverlayElement);
 
-    public void ShowOverlay()
-    {
+        UIToolkitUtils.MonitorElementEnablement(m_SaveButton, IsSettingsChanged);
         LoadGameSettings();
-        m_BaseRoot.Add(m_OverlayRoot);
-    }
-
-    public void HideOverlay()
-    {
-        LoadGameSettings();
-        m_BaseRoot.Remove(m_OverlayRoot);
     }
 
     private void LoadGameSettings()
@@ -89,16 +74,11 @@ public class GameSettingsUIController : MonoBehaviour
         GameSettingsManager.Volume = m_VolumeSlider.value;
     }
 
-    private void StartSaveButtonMonitor()
+    private bool IsSettingsChanged()
     {
-        m_SaveButtonMonitor?.Pause();
-
-        m_SaveButtonMonitor = m_SaveButton.schedule.Execute(() =>
-        {
-            bool isLanguageChanged = LocalizationUtils.ConvertNativeNameToCode(m_LanguageDropdownField.value) != GameSettingsManager.Locale;
-            bool isVolumeChanged = !Mathf.Approximately(m_VolumeSlider.value, GameSettingsManager.Volume);
-
-            m_SaveButton.SetEnabled(isLanguageChanged || isVolumeChanged);
-        }).Every(10);
+        bool isLanguageChanged = LocalizationUtils.ConvertNativeNameToCode(m_LanguageDropdownField.value) != GameSettingsManager.Locale;
+        bool isVolumeChanged = !Mathf.Approximately(m_VolumeSlider.value, GameSettingsManager.Volume);
+        
+        return isLanguageChanged || isVolumeChanged;
     }
 }

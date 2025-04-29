@@ -1,0 +1,11 @@
+.voteIcon {
+    background-image: url("project://database/Assets/Art/UI/Icons/ballot.png?fileID=2800000&guid=429640703ceca1f4b82c9e745df03a0b&type=3#ballot");
+}
+
+.alienIcon {
+    background-image: url("project://database/Assets/Art/UI/Icons/aliens.png?fileID=2800000&guid=586804e7e8f12524585fd4ba11bfd711&type=3#aliens");
+}
+
+.humanIcon {
+    background-image: url("project://database/Assets/Art/UI/Icons/multiple-users-silhouette.png?fileID=2800000&guid=99f24b49713b8e744aa592c7a55f2918&type=3#multiple-users-silhouette");
+}

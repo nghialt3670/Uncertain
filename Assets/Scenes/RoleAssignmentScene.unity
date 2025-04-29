@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 111758033}
   - component: {fileID: 111758036}
   - component: {fileID: 111758037}
+  - component: {fileID: 111758038}
   m_Layer: 5
   m_Name: UIDocument
   m_TagString: Untagged
@@ -207,13 +208,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8808ab22375f6bb43b9a1454e7a653c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_WordsEndpoint: single-device/v1/generate
-  m_LoadingOverLay: {fileID: 9197481963319205126, guid: 762dbcbd804583946b0885c1c03a858d, type: 3}
+  m_LoadingOverlay: {fileID: 9197481963319205126, guid: 762dbcbd804583946b0885c1c03a858d, type: 3}
   m_RoleRevealOverlay: {fileID: 9197481963319205126, guid: ba0a154d571f92e48b6bba5b80bc671e, type: 3}
+  m_LoadingOverlayProgressBarName: ProgressBar
   m_PlayerNameLabelName: PlayerNameLabel
   m_RoleCardName: RoleCard
   m_WordLabelName: WordLabel
   m_RoleRevealOverlayCloseButtonName: CloseButton
+--- !u!114 &111758038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111758032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7c858df0168af14fb8963a88ad74466, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LoadingStrategy: {fileID: 11400000, guid: e639c8f8080f6fb4cab6639b8c82cada, type: 2}
+  m_LoadingOverlay: {fileID: 9197481963319205126, guid: 762dbcbd804583946b0885c1c03a858d, type: 3}
+  m_FailureOverlay: {fileID: 9197481963319205126, guid: 62828a5a2561a5a45bbd65e038c17843, type: 3}
+  m_SuccessOverlay: {fileID: 0}
+  m_MessageLabelName: MessageLabel
+  m_ReloadButtonName: ReloadButton
+  m_ReturnButtonName: ReturnButton
+  m_ProgressBarName: ProgressBar
+  m_MinDuration: 2
+  m_ProgressUpdateInterval: 0.05
 --- !u!1 &1338633497
 GameObject:
   m_ObjectHideFlags: 0

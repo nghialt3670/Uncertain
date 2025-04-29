@@ -189,7 +189,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a322af37fe9b54380343cb786949a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlayerListItemVTA: {fileID: 9197481963319205126, guid: 7f29dd7216306b543bb34fa2fe48ef62, type: 3}
+  m_PlayerListItem: {fileID: 9197481963319205126, guid: 7f29dd7216306b543bb34fa2fe48ef62, type: 3}
+  m_NextSceneName: RoleAssignmentScene
   m_PlayerListViewName: PlayerListView
   m_PlayerNameTextFieldName: PlayerNameTextField
   m_AddPlayerButtonName: AddPlayerButton
@@ -230,8 +231,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MatchSettingsOverlay: {fileID: 9197481963319205126, guid: 904d77467745b3e47be34be9d73f0824, type: 3}
-  m_LanguagesEndpoint: api/single-device/v1/languages
-  m_TopicsEndpoint: api/single-device/v1/topics
+  m_LanguagesEndpoint: single-device/v1/languages
+  m_TopicsEndpoint: single-device/v1/topics
   m_OpenButtonName: MatchSettingsButton
   m_LanguageDropdownFieldName: LanguageDropdownField
   m_TopicDropdownFieldName: TopicDropdownField

@@ -1,12 +1,8 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <engine:VisualElement name="Root" style="flex-grow: 1; background-color: rgb(181, 230, 216);">
-        <engine:VisualElement name="Header" style="flex-grow: 1; height: 10%;" />
-        <engine:VisualElement name="Main" style="flex-grow: 1; height: 70%;">
-            <engine:VisualElement style="flex-grow: 1;">
-                <engine:Label text="Label" style="font-size: 100px; -unity-font-style: bold;" />
-                <engine:ProgressBar value="22" title="my-progress" />
-            </engine:VisualElement>
+    <engine:VisualElement name="Root" style="flex-grow: 1; background-color: rgb(181, 230, 216); align-items: center; justify-content: center;">
+        <engine:VisualElement name="Container" style="flex-grow: 0;">
+            <engine:Label text="UNCERTAIN" style="font-size: 100px; -unity-font-style: bold; -unity-text-align: upper-center;" />
+            <engine:ProgressBar value="22" name="ProgressBar" />
         </engine:VisualElement>
-        <engine:VisualElement name="Footer" style="flex-grow: 1; height: 20%;" />
     </engine:VisualElement>
 </engine:UXML>

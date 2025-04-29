@@ -90,7 +90,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3199216124088320
-    m_Key: return
+    m_Key: cancel
     m_Metadata:
       m_Items: []
   - m_Id: 3208473003347968
@@ -119,6 +119,22 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 3912601958535168
     m_Key: double_click_to_view
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4328135036424192
+    m_Key: reload
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4328466537435136
+    m_Key: Failure
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4367556645408768
+    m_Key: confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4368308419874816
+    m_Key: will_be_eliminated
     m_Metadata:
       m_Items: []
   m_Metadata:

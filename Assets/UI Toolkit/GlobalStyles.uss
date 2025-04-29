@@ -260,6 +260,8 @@ DropdownField > VisualElement > VisualElement {
     border-right-width: 5px;
     border-bottom-width: 5px;
     border-left-width: 5px;
+    width: 1000px;
+    min-height: 800px;
 }
 
 Button:disabled:hover {
