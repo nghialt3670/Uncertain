@@ -142,7 +142,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4394075556073472
-    m_Key: return_lobby
+    m_Key: close
     m_Metadata:
       m_Items: []
   - m_Id: 4619788028661760
@@ -159,6 +159,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 4645274431705088
     m_Key: player_name_must_not_be_duplicate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4732133388242944
+    m_Key: cancel
     m_Metadata:
       m_Items: []
   m_Metadata:

@@ -1,3 +1,10 @@
+#Root {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
 * {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -26,8 +33,8 @@
 Button {
     font-size: 50px;
     -unity-font-style: bold;
-    padding-right: 60px;
-    padding-left: 59px;
+    padding-right: 40px;
+    padding-left: 40px;
     min-width: 200px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -261,7 +268,8 @@ DropdownField > VisualElement > VisualElement {
     border-bottom-width: 5px;
     border-left-width: 5px;
     width: 1000px;
-    min-height: 800px;
+    min-height: 600px;
+    background-color: rgb(200, 200, 200);
 }
 
 Button:disabled:hover {
@@ -285,4 +293,11 @@ Label {
     height: 120px;
     background-image: url("project://database/Assets/Art/UI/Icons/eye.png?fileID=2800000&guid=e76684f0935a5304faa26ae862f837be&type=3#eye");
     position: absolute;
+}
+
+#unity-progress-bar VisualElement {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
 }

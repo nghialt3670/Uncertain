@@ -2,10 +2,14 @@
     <Style src="project://database/Assets/UI%20Toolkit/GlobalStyles.uss?fileID=7433441132597879392&amp;guid=706ca259c8ef8274e87f9ee07ba294bd&amp;type=3#GlobalStyles" />
     <Style src="project://database/Assets/UI%20Toolkit/LobbyUI/ValidationOverlay.uss?fileID=7433441132597879392&amp;guid=bc4742ca32071ca48834ac7f16d4ffe4&amp;type=3#ValidationOverlay" />
     <engine:VisualElement name="Root" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.39); align-items: center; justify-content: center;">
-        <engine:VisualElement name="Modal" style="flex-grow: 0; background-color: rgb(130, 130, 130); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; position: relative; right: auto; left: auto; top: auto; align-self: center; align-content: auto; justify-content: space-between; align-items: stretch;">
-            <engine:VisualElement name="Header" style="flex-grow: 0; height: auto; white-space: normal; flex-direction: row; align-self: auto; align-items: center; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px;" />
-            <engine:VisualElement name="Main" style="flex-grow: 0; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px; align-items: center;">
-                <engine:Label text="Validation Message" name="MessageLabel" style="-unity-text-align: upper-center; -unity-font-style: normal; font-size: 70px; white-space: normal;">
+        <engine:VisualElement name="Modal" style="flex-grow: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; position: relative; right: auto; left: auto; top: auto; align-self: center; align-content: auto; justify-content: space-between; align-items: stretch;">
+            <engine:VisualElement name="Header" style="flex-grow: 0; height: auto; white-space: normal; flex-direction: row; align-self: auto; align-items: center; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px;">
+                <engine:VisualElement name="FailureIcon" class="icon" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/Art/UI/Icons/speech-bubble.png?fileID=2800000&amp;guid=d3ee94bb7eee20d49b7cfd3eb0ad4337&amp;type=3#speech-bubble&quot;);" />
+                <engine:VisualElement name="Spacer" style="flex-grow: 0; width: 30px;" />
+                <engine:Label text="Oops" name="FailureLabel" style="font-size: 60px; -unity-font-style: bold; -unity-text-align: middle-left;" />
+            </engine:VisualElement>
+            <engine:VisualElement name="Main" style="flex-grow: 0; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px; align-items: center; -unity-font-style: normal;">
+                <engine:Label text="Validation Message" name="MessageLabel" style="-unity-text-align: upper-center; -unity-font-style: bold; font-size: 60px; white-space: normal;">
                     <Bindings>
                         <UnityEngine.Localization.LocalizedString property="text" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(4645274431705088)" />
                     </Bindings>

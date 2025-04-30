@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/UI%20Toolkit/GlobalStyles.uss?fileID=7433441132597879392&amp;guid=706ca259c8ef8274e87f9ee07ba294bd&amp;type=3#GlobalStyles" />
     <Style src="project://database/Assets/UI%20Toolkit/InGameUI/EndRoundOverlay.uss?fileID=7433441132597879392&amp;guid=72a0741b38ef692419ff4cd6f7ab5805&amp;type=3#EndRoundOverlay" />
     <engine:VisualElement name="Root" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.39); align-items: center; justify-content: center;">
-        <engine:VisualElement name="Modal" style="flex-grow: 0; background-color: rgb(130, 130, 130); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; position: relative; right: auto; left: auto; top: auto; align-self: center; align-content: auto; justify-content: space-between; align-items: stretch;">
+        <engine:VisualElement name="Modal" style="flex-grow: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; position: relative; right: auto; left: auto; top: auto; align-self: center; align-content: auto; justify-content: space-between; align-items: stretch;">
             <engine:VisualElement name="Header" style="flex-grow: 0; height: auto; white-space: normal; flex-direction: row; align-self: auto; align-items: center; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px;" />
             <engine:VisualElement name="Main" style="flex-grow: 0; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px; align-items: center;">
                 <engine:VisualElement name="RoleIcon" style="flex-grow: 1; width: 300px; height: 300px;" />

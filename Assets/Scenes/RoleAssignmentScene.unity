@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 111758036}
   - component: {fileID: 111758037}
   - component: {fileID: 111758038}
+  - component: {fileID: 111758039}
   m_Layer: 5
   m_Name: UIDocument
   m_TagString: Untagged
@@ -190,12 +191,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GameSettingsOverlay: {fileID: 9197481963319205126, guid: ce9b5f96a049d9d4aa76e9b7da4dec75, type: 3}
-  m_OpenButtonName: GameSettingsButton
-  m_LanguageDropdownFieldName: LanguageDropdownField
-  m_VolumeSliderName: VolumeSlider
-  m_ReturnButtonName: ReturnButton
-  m_SaveButtonName: SaveButton
-  m_CloseButtonName: CloseButton
 --- !u!114 &111758037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,11 +205,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LoadingOverlay: {fileID: 9197481963319205126, guid: 762dbcbd804583946b0885c1c03a858d, type: 3}
   m_RoleRevealOverlay: {fileID: 9197481963319205126, guid: ba0a154d571f92e48b6bba5b80bc671e, type: 3}
-  m_LoadingOverlayProgressBarName: ProgressBar
-  m_PlayerNameLabelName: PlayerNameLabel
-  m_RoleCardName: RoleCard
-  m_WordLabelName: WordLabel
-  m_RoleRevealOverlayCloseButtonName: CloseButton
 --- !u!114 &111758038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +227,19 @@ MonoBehaviour:
   m_ProgressBarName: ProgressBar
   m_MinDuration: 2
   m_ProgressUpdateInterval: 0.05
+--- !u!114 &111758039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111758032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8391389f7d0bdf347909a2d0944a9821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_GameRulesOverlay: {fileID: 9197481963319205126, guid: ccfec08682de20e4aaa8a3959de39f3f, type: 3}
 --- !u!1 &1338633497
 GameObject:
   m_ObjectHideFlags: 0

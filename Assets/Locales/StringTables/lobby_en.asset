@@ -67,21 +67,22 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 650390930423808
-    m_Localized: "\U0001F3AF Objective\n\nFind and eliminate the aliens. Aliens must
-      blend in and avoid getting caught.\n\n\U0001F465 Roles\n\nHumans: Most players.
-      Everyone receives the same word.\n\nAliens: A small group (less than one-third).
-      They receive a slightly different word.\n\n\U0001F504 How to Play\n\nWord Assignment:
-      Each player secretly gets a word (humans get the same word, aliens get a different
-      one).\n\nDescribe: Players take turns describing their word in 1\u20132 sentences
-      \u2014 without saying the word or using translations/synonyms directly.\n\nDiscuss:
-      After all players have spoken, you can discuss and try to find the aliens.\n\nVote:
-      Everyone votes for the player they think is an alien. The player with the most
-      votes is eliminated.\n\nRepeat: Continue describing and voting each round.\n\n\U0001F3C6
-      Win Conditions\n\nHumans win if all aliens are eliminated.\n\nAliens win if
-      they survive until only 2 or 3 players remain (depending on total players).\n\n\u26A0
-      Tips\n\nBe vague but not too vague \u2014 you want to blend in without being
-      suspicious.\n\nListen carefully and look for small differences in how others
-      describe their words."
+    m_Localized: "*Objective\n\nFind and eliminate the aliens. Aliens must blend
+      in and avoid getting caught.\n\n*Roles\n\nHumans: Most players. Everyone receives
+      the same word.\n\nAliens: A small group (less than one-third of players). They
+      receive a slightly different word.\n\n*How to Play\n\nWord Assignment: Each
+      player secretly receives a word. All humans get the same word, while each alien
+      receives a similar but different word.\n\nDescribe: Players take turns describing
+      their word in 1\u20132 sentences. You cannot say the word directly or use clear
+      synonyms or translations.\n\nDiscuss: After everyone has spoken, players may
+      discuss the clues and share suspicions.\n\nVote: Each player votes for who
+      they think is an alien. The player with the most votes is eliminated.\n\nRepeat:
+      Continue with a new round of describing and voting.\n\n*Win Conditions\n\nHumans
+      win if all aliens are eliminated.\n\nAliens win if the number of remaining
+      aliens is equal to the number of remaining humans.\n\n*Tips\n\nBe vague enough
+      to avoid being exposed, but clear enough to not appear suspicious.\n\nPay close
+      attention to how others describe their words - subtle differences may reveal
+      who the aliens are."
     m_Metadata:
       m_Items: []
   - m_Id: 651589431820288
@@ -170,6 +171,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 4645274431705088
     m_Localized: Player name mustn't be duplicate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4732133388242944
+    m_Localized: Cancel
     m_Metadata:
       m_Items: []
   references:

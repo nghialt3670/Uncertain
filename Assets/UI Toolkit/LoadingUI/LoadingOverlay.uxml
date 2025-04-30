@@ -1,7 +1,8 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/GlobalStyles.uss?fileID=7433441132597879392&amp;guid=706ca259c8ef8274e87f9ee07ba294bd&amp;type=3#GlobalStyles" />
     <engine:VisualElement name="Root" style="flex-grow: 1; background-color: rgb(181, 230, 216); align-items: center; justify-content: center;">
         <engine:VisualElement name="Container" style="flex-grow: 0;">
-            <engine:Label text="UNCERTAIN" style="font-size: 100px; -unity-font-style: bold; -unity-text-align: upper-center;" />
+            <engine:Label text="UNCERTAIN" style="font-size: 120px; -unity-font-style: normal; -unity-text-align: middle-center; -unity-font-definition: url(&quot;project://database/Assets/Art/UI/Fonts/Zany-yYngM.ttf?fileID=12800000&amp;guid=eaca6fcf7970f88468977b1ae24ffd19&amp;type=3#Zany-yYngM&quot;); letter-spacing: 20px;" />
             <engine:ProgressBar value="22" name="ProgressBar" />
         </engine:VisualElement>
     </engine:VisualElement>

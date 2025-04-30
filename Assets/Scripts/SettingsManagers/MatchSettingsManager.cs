@@ -56,6 +56,19 @@ public static class MatchSettingsManager
 
     public static int AlienCount { get; set; }
 
+
+    public static void RemovePlayerAt(int index)
+    {
+        Players.RemoveAt(index);
+
+        int maxAlienCount = GetMaxAlienCount();
+
+        while (AlienCount > maxAlienCount)
+        {
+            AlienCount--;
+        }
+    }
+
     public static bool CanAddPlayer()
     {
         return Players.Count < MAX_PLAYER_COUNT;

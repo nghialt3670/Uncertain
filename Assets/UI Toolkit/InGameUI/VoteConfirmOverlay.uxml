@@ -1,7 +1,7 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/GlobalStyles.uss?fileID=7433441132597879392&amp;guid=706ca259c8ef8274e87f9ee07ba294bd&amp;type=3#GlobalStyles" />
     <engine:VisualElement name="Root" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.39); align-items: center; justify-content: center;">
-        <engine:VisualElement name="Modal" style="flex-grow: 0; background-color: rgb(130, 130, 130); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; position: relative; right: auto; left: auto; top: auto; align-self: center; align-content: auto; justify-content: space-between; align-items: stretch;">
+        <engine:VisualElement name="Modal" style="flex-grow: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; position: relative; right: auto; left: auto; top: auto; align-self: center; align-content: auto; justify-content: space-between; align-items: stretch;">
             <engine:VisualElement name="Header" style="flex-grow: 0; height: auto; white-space: normal; flex-direction: row; align-self: auto; align-items: center; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px;" />
             <engine:VisualElement name="Main" style="flex-grow: 0; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px;">
                 <engine:Label text="PlayerName&#10;" name="PlayerNameLabel" style="font-size: 80px; -unity-font-style: bold; -unity-text-align: upper-center; white-space: normal;" />
@@ -20,7 +20,7 @@
                 <engine:VisualElement name="Spacer" style="height: auto; width: 30px;" />
                 <engine:Button text="Close" name="CancelButton" class="button">
                     <Bindings>
-                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(4394075556073472)" />
+                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(4732133388242944)" />
                     </Bindings>
                 </engine:Button>
             </engine:VisualElement>

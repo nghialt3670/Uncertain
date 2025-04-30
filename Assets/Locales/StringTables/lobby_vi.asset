@@ -67,35 +67,38 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 650390930423808
-    m_Localized: "\U0001F3AF M\u1EE5c Ti\xEAu\n\nT\xECm ra v\xE0 lo\u1EA1i b\u1ECF
+    m_Localized: "*M\u1EE5c Ti\xEAu\n\nT\xECm v\xE0 lo\u1EA1i b\u1ECF nh\u1EEFng
       ng\u01B0\u1EDDi ngo\xE0i h\xE0nh tinh. Ng\u01B0\u1EDDi ngo\xE0i h\xE0nh tinh
-      c\u1EA7n gi\u1EA3 d\u1EA1ng \u0111\u1EC3 kh\xF4ng b\u1ECB ph\xE1t hi\u1EC7n.\n\n\U0001F465
-      Vai Tr\xF2\n\nNg\u01B0\u1EDDi th\u01B0\u1EDDng: \u0110a s\u1ED1 ng\u01B0\u1EDDi
-      ch\u01A1i, c\xF9ng nh\u1EADn m\u1ED9t t\u1EEB gi\u1ED1ng nhau.\n\nNg\u01B0\u1EDDi
-      ngo\xE0i h\xE0nh tinh: M\u1ED9t nh\xF3m nh\u1ECF (\xEDt h\u01A1n 1/3 t\u1ED5ng
-      s\u1ED1 ng\u01B0\u1EDDi ch\u01A1i), nh\u1EADn m\u1ED9t t\u1EEB kh\xE1c nh\u01B0ng
-      g\u1EA7n gi\u1ED1ng.\n\n\U0001F504 C\xE1ch Ch\u01A1i\n\nPh\xE2n ph\xE1t t\u1EEB
-      kh\xF3a: M\u1ED7i ng\u01B0\u1EDDi ch\u01A1i nh\u1EADn m\u1ED9t t\u1EEB (ng\u01B0\u1EDDi
-      th\u01B0\u1EDDng c\xF9ng m\u1ED9t t\u1EEB, ng\u01B0\u1EDDi ngo\xE0i h\xE0nh
-      tinh m\u1ED9t t\u1EEB kh\xE1c).\n\nMi\xEAu t\u1EA3: L\u1EA7n l\u01B0\u1EE3t
-      t\u1EEBng ng\u01B0\u1EDDi m\xF4 t\u1EA3 t\u1EEB m\xECnh b\u1EB1ng 1\u20132
-      c\xE2u \u2014 kh\xF4ng \u0111\u01B0\u1EE3c n\xF3i tr\u1EF1c ti\u1EBFp t\u1EEB
-      \u0111\xF3 ho\u1EB7c d\xF9ng t\u1EEB \u0111\u1ED3ng ngh\u0129a/d\u1ECBch ngh\u0129a.\n\nTh\u1EA3o
-      lu\u1EADn: Sau khi t\u1EA5t c\u1EA3 \u0111\xE3 n\xF3i, c\u1EA3 nh\xF3m th\u1EA3o
-      lu\u1EADn \u0111\u1EC3 t\xECm ra ai \u0111\xE1ng nghi.\n\nB\u1ECF phi\u1EBFu:
-      M\u1ED7i ng\u01B0\u1EDDi ch\u1ECDn m\u1ED9t ng\u01B0\u1EDDi m\xECnh nghi l\xE0
-      ng\u01B0\u1EDDi ngo\xE0i h\xE0nh tinh. Ng\u01B0\u1EDDi b\u1ECB nghi nhi\u1EC1u
-      nh\u1EA5t s\u1EBD b\u1ECB lo\u1EA1i.\n\nTi\u1EBFp t\u1EE5c v\xF2ng m\u1EDBi:
-      L\u1EB7p l\u1EA1i qu\xE1 tr\xECnh cho \u0111\u1EBFn khi tr\xF2 ch\u01A1i k\u1EBFt
-      th\xFAc.\n\n\U0001F3C6 \u0110i\u1EC1u Ki\u1EC7n Th\u1EAFng\n\nNg\u01B0\u1EDDi
-      th\u01B0\u1EDDng th\u1EAFng khi lo\u1EA1i h\u1EBFt ng\u01B0\u1EDDi ngo\xE0i
+      ph\u1EA3i h\xF2a nh\u1EADp v\xE0 tr\xE1nh b\u1ECB ph\xE1t hi\u1EC7n.\n\n*Vai
+      Tr\xF2\n\nNg\u01B0\u1EDDi: Chi\u1EBFm \u0111a s\u1ED1. T\u1EA5t c\u1EA3 ng\u01B0\u1EDDi
+      ch\u01A1i \u0111\u1EC1u nh\u1EADn c\xF9ng m\u1ED9t t\u1EEB.\n\nNg\u01B0\u1EDDi
+      ngo\xE0i h\xE0nh tinh: M\u1ED9t nh\xF3m nh\u1ECF (\xEDt h\u01A1n m\u1ED9t ph\u1EA7n
+      ba t\u1ED5ng s\u1ED1 ng\u01B0\u1EDDi ch\u01A1i). H\u1ECD nh\u1EADn m\u1ED9t
+      t\u1EEB kh\xE1c, nh\u01B0ng c\xF3 li\xEAn quan.\n\n*C\xE1ch Ch\u01A1i\n\nPh\xE1t
+      T\u1EEB: M\u1ED7i ng\u01B0\u1EDDi ch\u01A1i b\xED m\u1EADt nh\u1EADn m\u1ED9t
+      t\u1EEB. T\u1EA5t c\u1EA3 ng\u01B0\u1EDDi nh\u1EADn \u0111\u01B0\u1EE3c t\u1EEB
+      gi\u1ED1ng nhau, c\xF2n ng\u01B0\u1EDDi ngo\xE0i h\xE0nh tinh s\u1EBD nh\u1EADn
+      t\u1EEB kh\xE1c nh\u01B0ng t\u01B0\u01A1ng t\u1EF1.\n\nMi\xEAu T\u1EA3: M\u1ED7i
+      ng\u01B0\u1EDDi ch\u01A1i l\u1EA7n l\u01B0\u1EE3t mi\xEAu t\u1EA3 t\u1EEB c\u1EE7a
+      m\xECnh trong 1\u20132 c\xE2u. Kh\xF4ng \u0111\u01B0\u1EE3c n\xF3i tr\u1EF1c
+      ti\u1EBFp t\u1EEB \u0111\xF3 ho\u1EB7c d\xF9ng t\u1EEB \u0111\u1ED3ng ngh\u0129a,
+      d\u1ECBch ngh\u0129a.\n\nTh\u1EA3o Lu\u1EADn: Sau khi t\u1EA5t c\u1EA3 \u0111\xE3
+      mi\xEAu t\u1EA3, m\u1ECDi ng\u01B0\u1EDDi c\xF3 th\u1EC3 th\u1EA3o lu\u1EADn
+      v\xE0 chia s\u1EBB nghi ng\u1EDD.\n\nB\xECnh Ch\u1ECDn: M\u1ED7i ng\u01B0\u1EDDi
+      ch\u1ECDn m\u1ED9t ng\u01B0\u1EDDi m\xE0 h\u1ECD nghi l\xE0 ng\u01B0\u1EDDi
+      ngo\xE0i h\xE0nh tinh. Ng\u01B0\u1EDDi b\u1ECB nhi\u1EC1u phi\u1EBFu nh\u1EA5t
+      s\u1EBD b\u1ECB lo\u1EA1i.\n\nL\u1EB7p L\u1EA1i: Ti\u1EBFp t\u1EE5c ch\u01A1i
+      v\u1EDBi v\xF2ng ti\u1EBFp theo g\u1ED3m ph\u1EA7n mi\xEAu t\u1EA3 v\xE0 b\xECnh
+      ch\u1ECDn.\n\n*\u0110i\u1EC1u Ki\u1EC7n Th\u1EAFng\n\nNg\u01B0\u1EDDi th\u1EAFng
+      n\u1EBFu lo\u1EA1i \u0111\u01B0\u1EE3c t\u1EA5t c\u1EA3 ng\u01B0\u1EDDi ngo\xE0i
       h\xE0nh tinh.\n\nNg\u01B0\u1EDDi ngo\xE0i h\xE0nh tinh th\u1EAFng n\u1EBFu
-      s\u1ED1ng s\xF3t \u0111\u1EBFn khi ch\u1EC9 c\xF2n 2 ho\u1EB7c 3 ng\u01B0\u1EDDi
-      ch\u01A1i (t\xF9y v\xE0o t\u1ED5ng s\u1ED1 ng\u01B0\u1EDDi ch\u01A1i ban \u0111\u1EA7u).\n\n\u26A0\uFE0F
-      M\u1EB9o\n\nMi\xEAu t\u1EA3 v\u1EEBa \u0111\u1EE7 \u2014 \u0111\u1EEBng qu\xE1
-      r\xF5 r\xE0ng c\u0169ng \u0111\u1EEBng qu\xE1 m\u01A1 h\u1ED3.\n\nL\u1EAFng
-      nghe k\u1EF9 c\xE1ch ng\u01B0\u1EDDi kh\xE1c m\xF4 t\u1EA3 \u0111\u1EC3 ph\xE1t
-      hi\u1EC7n \u0111i\u1EC3m kh\xE1c bi\u1EC7t."
+      s\u1ED1 ng\u01B0\u1EDDi ngo\xE0i h\xE0nh tinh c\xF2n l\u1EA1i b\u1EB1ng v\u1EDBi
+      s\u1ED1 ng\u01B0\u1EDDi c\xF2n l\u1EA1i.\n\n*M\u1EB9o\n\nH\xE3y m\u01A1 h\u1ED3
+      v\u1EEBa \u0111\u1EE7 \u0111\u1EC3 kh\xF4ng b\u1ECB nghi ng\u1EDD, nh\u01B0ng
+      \u0111\u1EEBng qu\xE1 chung chung khi\u1EBFn b\u1EA1n b\u1ECB nghi l\xE0 ng\u01B0\u1EDDi
+      ngo\xE0i h\xE0nh tinh.\n\nL\u1EAFng nghe k\u1EF9 c\xE1ch ng\u01B0\u1EDDi kh\xE1c
+      mi\xEAu t\u1EA3 - nh\u1EEFng kh\xE1c bi\u1EC7t nh\u1ECF c\xF3 th\u1EC3 ti\u1EBFt
+      l\u1ED9 k\u1EBB gi\u1EA3 m\u1EA1o."
     m_Metadata:
       m_Items: []
   - m_Id: 651589431820288
@@ -186,6 +189,10 @@ MonoBehaviour:
   - m_Id: 4645274431705088
     m_Localized: "T\xEAn ng\u01B0\u1EDDi ch\u01A1i kh\xF4ng \u0111\u01B0\u1EE3c tr\xF9ng
       nhau"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4732133388242944
+    m_Localized: "H\u1EE7y"
     m_Metadata:
       m_Items: []
   references:

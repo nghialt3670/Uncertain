@@ -1,12 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?>
-<engine:UXML
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:engine="UnityEngine.UIElements"
-    xmlns:editor="UnityEditor.UIElements"
-    xsi:noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd"
->
-    <Style src="project://database/Assets/UI%20Toolkit/GameRulesOverlay/GameRulesOverlay.uss?fileID=7433441132597879392&amp;guid=b4f5540b90e7ac847bf799e81564d2fc&amp;type=3#GameRulesOverlay" />
-	<engine:Label text="Hello World! From UXML" />
-	<engine:Label class="custom-label" text="Hello World! With Style" />
-
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/GameRulesUI/GameRulesOverlay.uss?fileID=7433441132597879392&amp;guid=b4f5540b90e7ac847bf799e81564d2fc&amp;type=3#GameRulesOverlay" />
+    <Style src="project://database/Assets/UI%20Toolkit/GlobalStyles.uss?fileID=7433441132597879392&amp;guid=706ca259c8ef8274e87f9ee07ba294bd&amp;type=3#GlobalStyles" />
+    <engine:VisualElement name="Root" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.39); align-items: center; justify-content: center;">
+        <engine:VisualElement name="Modal" style="flex-grow: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; position: absolute; right: auto; left: auto; top: 100px; align-self: center; align-content: auto; justify-content: space-between; align-items: stretch; max-height: none; min-height: auto; bottom: 100px;">
+            <engine:VisualElement name="Header" style="flex-grow: 0; height: auto; white-space: normal; flex-direction: row; align-self: auto; align-items: center; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px;">
+                <engine:VisualElement name="FailureIcon" class="icon" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/Art/UI/Icons/info.png?fileID=2800000&amp;guid=580bc270d2c81034683cc00ab0c56a5d&amp;type=3#info&quot;);" />
+                <engine:VisualElement name="Spacer" style="flex-grow: 0; width: 30px;" />
+                <engine:Label text="Settings" name="FailureLabel" style="font-size: 60px; -unity-font-style: bold; -unity-text-align: middle-left;">
+                    <Bindings>
+                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(651589431820288)" />
+                    </Bindings>
+                </engine:Label>
+            </engine:VisualElement>
+            <engine:VisualElement name="Main" style="flex-grow: 0; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px; height: 80%;">
+                <engine:ScrollView>
+                    <engine:Label text="Failure Message" name="GameRulesLabel" style="-unity-text-align: upper-left; -unity-font-style: bold; font-size: 50px; white-space: normal;">
+                        <Bindings>
+                            <UnityEngine.Localization.LocalizedString property="text" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(650390930423808)" />
+                        </Bindings>
+                    </engine:Label>
+                </engine:ScrollView>
+            </engine:VisualElement>
+            <engine:VisualElement name="Footer" style="flex-grow: 0; height: auto; flex-direction: row; align-items: center; justify-content: flex-end; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px;">
+                <engine:VisualElement name="Spacer" style="height: auto; width: 30px;" />
+                <engine:Button text="Close" name="CloseButton" class="button">
+                    <Bindings>
+                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(3780460138496)" />
+                    </Bindings>
+                </engine:Button>
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
 </engine:UXML>

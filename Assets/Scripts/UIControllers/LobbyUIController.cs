@@ -128,7 +128,7 @@ public class LobbyUIController : MonoBehaviour
     {
         if (MatchSettingsManager.CanRemovePlayer())
         {
-            MatchSettingsManager.Players.RemoveAt(index);
+            MatchSettingsManager.RemovePlayerAt(index);
         }
     }
 
