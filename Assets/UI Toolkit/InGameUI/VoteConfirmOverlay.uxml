@@ -20,7 +20,7 @@
                 <engine:VisualElement name="Spacer" style="height: auto; width: 30px;" />
                 <engine:Button text="Close" name="CancelButton" class="button">
                     <Bindings>
-                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(3199216124088320)" />
+                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(4394075556073472)" />
                     </Bindings>
                 </engine:Button>
             </engine:VisualElement>

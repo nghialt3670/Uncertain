@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public static class MatchSettingsManager
@@ -75,11 +76,33 @@ public static class MatchSettingsManager
         return Mathf.FloorToInt(PlayerCount * MAX_ALIEN_FRACTION);
     }
 
+    public static PlayerNamesValidationResult ValidatePlayerNames()
+    {
+        HashSet<string> existingNames = new HashSet<string>();
+
+        foreach (Player player in Players)
+        {
+            if (player.name == string.Empty)
+            {
+                return PlayerNamesValidationResult.CONTAINS_EMPTY;
+            }
+
+            if (existingNames.Contains(player.name))
+            {
+                return PlayerNamesValidationResult.CONTAINS_DUPLICATE;
+            }
+
+            existingNames.Add(player.name);
+        }
+
+        return PlayerNamesValidationResult.VALID;
+    }
+
     public static void AssignRoles(string firstWord, string secondWord)
     {
         foreach (var player in Players)
         {
-            player.roles = new List<Role>();
+            player.roles = new List<PlayerRole>();
             player.words = new List<string>();
             player.voteIndices = new List<int>();
         }
@@ -99,12 +122,12 @@ public static class MatchSettingsManager
             Players[i].voteIndices.Add(-1);
             if (alienIndexes.Contains(i))
             {
-                Players[i].roles.Add(Role.ALIEN);
+                Players[i].roles.Add(PlayerRole.ALIEN);
                 Players[i].words.Add(secondWord);
             }
             else
             {
-                Players[i].roles.Add(Role.HUMAN);
+                Players[i].roles.Add(PlayerRole.HUMAN);
                 Players[i].words.Add(firstWord);
             }
         }
@@ -112,7 +135,7 @@ public static class MatchSettingsManager
 
     public static List<string> GetAssignedWords()
     {
-        HashSet<string> allWords = new HashSet<string>();
+        HashSet<string> assignedWords = new HashSet<string>();
 
         foreach (var player in Players)
         {
@@ -120,12 +143,65 @@ public static class MatchSettingsManager
             {
                 foreach (var word in player.words)
                 {
-                    allWords.Add(word);
+                    assignedWords.Add(word);
                 }
             }
         }
 
-        return new List<string>(allWords);
+        return new List<string>(assignedWords);
+    }
+
+    public static void Vote(Player player)
+    {
+        player.voteIndices[^1] = Players.Select(player => player.voteIndices[^1]).Min() + 1;
+    }
+
+    public static bool IsEndGame()
+    {
+        return IsAliensWin() || IsHumansWin();
+    }
+
+    public static bool IsAliensWin()
+    {
+        int unvotedAlienCount = GetUnvotedAlienCount();
+        int unvotedHumanCount = GetUnvotedHumanCount();
+
+        return unvotedAlienCount != 0 && unvotedAlienCount == unvotedHumanCount;
+    }
+
+    public static bool IsHumansWin()
+    {
+        return GetUnvotedAlienCount() == 0;
+    }
+
+    public static int GetUnvotedAlienCount()
+    {
+        return Players.Where(player => IsAlien(player) && !IsVoted(player)).Count();
+    }
+
+    public static int GetUnvotedHumanCount()
+    {
+        return Players.Where(player => IsHuman(player) && !IsVoted(player)).Count();
+    }
+
+    public static bool IsAlien(Player player)
+    {
+        return player.roles[^1] == PlayerRole.ALIEN;
+    }
+
+    public static bool IsHuman(Player player)
+    {
+        return player.roles[^1] == PlayerRole.HUMAN;
+    }
+
+    public static bool IsVoted(Player player)
+    {
+        return player.voteIndices[^1] != -1;
+    }
+
+    public static bool IsNewPlayer(Player player)
+    {
+        return player.roles.Count == 0;
     }
 
     public static void Reset()
@@ -134,4 +210,11 @@ public static class MatchSettingsManager
         PlayerPrefs.DeleteKey(TOPIC_KEY);
         PlayerPrefs.Save();
     }
+}
+
+public enum PlayerNamesValidationResult
+{
+    VALID,
+    CONTAINS_EMPTY,
+    CONTAINS_DUPLICATE,
 }

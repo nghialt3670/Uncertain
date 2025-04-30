@@ -203,6 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PlayerListItem: {fileID: 9197481963319205126, guid: 9329ad5e8e852264bb4d011bf96b1230, type: 3}
   m_VoteConfirmOverlay: {fileID: 9197481963319205126, guid: 89fb8e4d93a900d48ac8299885791347, type: 3}
+  m_EndRoundOverlay: {fileID: 9197481963319205126, guid: 9684a65c6889c1f4b80b6c4bfd3b640b, type: 3}
 --- !u!1 &1338633497
 GameObject:
   m_ObjectHideFlags: 0

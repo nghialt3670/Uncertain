@@ -30,7 +30,7 @@
                 <engine:VisualElement name="Container" style="flex-grow: 1; align-items: center; justify-content: flex-start;">
                     <engine:Button text="Return" name="ReturnButton" style="background-color: rgba(0, 0, 0, 0.08); padding-left: 130px; background-image: url(&quot;project://database/Assets/Art/UI/Icons/back.png?fileID=2800000&amp;guid=cbc8d60219064bd49acff52807b4cd85&amp;type=3#back&quot;); background-size: 60px 60px; background-position-y: center 0; background-position-x: left 50px;">
                         <Bindings>
-                            <UnityEngine.Localization.LocalizedString property="text" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(3199216124088320)" />
+                            <UnityEngine.Localization.LocalizedString property="text" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(4393890469826560)" />
                         </Bindings>
                     </engine:Button>
                 </engine:VisualElement>

@@ -104,8 +104,8 @@ MonoBehaviour:
     m_Localized: Dictionary
     m_Metadata:
       m_Items: []
-  - m_Id: 3199216124088320
-    m_Localized: Cancel
+  - m_Id: 4393890469826560
+    m_Localized: Return
     m_Metadata:
       m_Items: []
   - m_Id: 3208473003347968
@@ -150,6 +150,26 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 4368308419874816
     m_Localized: will be eliminated
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4394075556073472
+    m_Localized: Lobby
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4619788028661760
+    m_Localized: Wins
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4625487882276864
+    m_Localized: Next round
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4645028486107136
+    m_Localized: Player name mustn't be empty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4645274431705088
+    m_Localized: Player name mustn't be duplicate
     m_Metadata:
       m_Items: []
   references:

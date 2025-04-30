@@ -44,7 +44,10 @@ public class RoleAssignmentUIController : MonoBehaviour
 
         m_RoleCard.RegisterCallback<PointerDownEvent>(OnRoleCardPointerDown);
         m_RoleRevealOverlayCloseButton.clicked += () => SetUpNextPlayer();
-        m_RoleRevealOverlayCloseButton.clicked += () => UIToolkitUtils.HideOverlay(m_RoleRevealOverlayElement);
+        m_RoleRevealOverlayCloseButton.clicked += () =>
+        {
+            UIToolkitUtils.HideOverlay(m_RoleRevealOverlayElement);
+        };
 
         m_UnassignedPlayers = MatchSettingsManager.Players.OrderBy(x => Random.value).ToList();
         SetUpNextPlayer();

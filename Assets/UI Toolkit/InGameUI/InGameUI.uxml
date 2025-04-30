@@ -12,6 +12,20 @@
             <engine:VisualElement name="Container" style="flex-grow: 1; max-width: none; justify-content: flex-start; align-items: stretch; background-color: rgb(140, 220, 198); border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-left-color: rgba(0, 0, 0, 0.08); border-right-color: rgba(0, 0, 0, 0.08); border-top-color: rgba(0, 0, 0, 0.08); border-bottom-color: rgba(0, 0, 0, 0.08); padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; height: auto;">
                 <engine:ListView show-add-remove-footer="false" name="PlayerListView" virtualization-method="DynamicHeight" selection-type="None" item-template="project://database/Assets/UI%20Toolkit/LobbyUI/PlayerListItem.uxml?fileID=9197481963319205126&amp;guid=7f29dd7216306b543bb34fa2fe48ef62&amp;type=3#PlayerListItem" focusable="true" show-bound-collection-size="false" style="flex-grow: 1; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; height: auto; align-content: auto; min-height: auto; max-height: none; margin-bottom: 0;" />
             </engine:VisualElement>
+            <engine:VisualElement name="Spacer" style="flex-grow: 0; height: 50px; width: auto;" />
+            <engine:VisualElement name="Container" style="flex-grow: 0; position: relative; left: auto; right: auto; bottom: auto; flex-direction: row; margin-left: 40px; align-content: flex-start; justify-content: center;">
+                <engine:VisualElement name="Container" style="flex-grow: 0; flex-direction: row; justify-content: center; align-items: center;">
+                    <engine:VisualElement name="HumansIcon" class="icon" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/UI/Icons/multiple-users-silhouette.png?fileID=2800000&amp;guid=99f24b49713b8e744aa592c7a55f2918&amp;type=3#multiple-users-silhouette&quot;);" />
+                    <engine:VisualElement name="Spacer" style="flex-grow: 0; height: auto; width: 20px;" />
+                    <engine:Label text="0" name="UnvotedHumanCountLabel" style="font-size: 60px; -unity-font-style: normal;" />
+                </engine:VisualElement>
+                <engine:VisualElement name="Spacer" style="flex-grow: 0; height: auto; width: 100px;" />
+                <engine:VisualElement name="Container" style="flex-grow: 0; flex-direction: row; justify-content: center; align-items: center;">
+                    <engine:VisualElement name="AlienIcon" class="icon" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/UI/Icons/aliens.png?fileID=2800000&amp;guid=586804e7e8f12524585fd4ba11bfd711&amp;type=3#aliens&quot;);" />
+                    <engine:VisualElement name="Spacer" style="flex-grow: 0; height: auto; width: 10px;" />
+                    <engine:Label text="0" name="UnvotedAlienCountLabel" style="font-size: 60px; -unity-font-style: normal;" />
+                </engine:VisualElement>
+            </engine:VisualElement>
         </engine:VisualElement>
         <engine:VisualElement name="Footer" style="flex-grow: 1; height: 10%; align-items: center; justify-content: center;" />
     </engine:VisualElement>

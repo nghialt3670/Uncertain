@@ -190,15 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerListItem: {fileID: 9197481963319205126, guid: 7f29dd7216306b543bb34fa2fe48ef62, type: 3}
-  m_NextSceneName: RoleAssignmentScene
-  m_PlayerListViewName: PlayerListView
-  m_PlayerNameTextFieldName: PlayerNameTextField
-  m_AddPlayerButtonName: AddPlayerButton
-  m_RemovePlayerButtonName: RemovePlayerButton
-  m_PlayerIndexLabelName: PlayerIndexLabel
-  m_AlienCountLabelName: AlienCountLabel
-  m_HumanCountLabelName: HumanCountLabel
-  m_StartButtonName: StartButton
+  m_ValidationOverlay: {fileID: 9197481963319205126, guid: 5ddcfcb189c0c2b47bcb4c94ebac5c15, type: 3}
 --- !u!114 &111758036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,12 +204,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GameSettingsOverlay: {fileID: 9197481963319205126, guid: ce9b5f96a049d9d4aa76e9b7da4dec75, type: 3}
-  m_OpenButtonName: GameSettingsButton
-  m_LanguageDropdownFieldName: LanguageDropdownField
-  m_VolumeSliderName: VolumeSlider
-  m_ReturnButtonName: ReturnButton
-  m_SaveButtonName: SaveButton
-  m_CloseButtonName: CloseButton
 --- !u!114 &111758037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,15 +217,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MatchSettingsOverlay: {fileID: 9197481963319205126, guid: 904d77467745b3e47be34be9d73f0824, type: 3}
-  m_LanguagesEndpoint: single-device/v1/languages
-  m_TopicsEndpoint: single-device/v1/topics
-  m_OpenButtonName: MatchSettingsButton
-  m_LanguageDropdownFieldName: LanguageDropdownField
-  m_TopicDropdownFieldName: TopicDropdownField
-  m_AlienCountSliderName: AlienCountSlider
-  m_AlienCountLabelName: AlienCountLabel
-  m_SaveButtonName: SaveButton
-  m_CloseButtonName: CloseButton
 --- !u!1 &1338633497
 GameObject:
   m_ObjectHideFlags: 0

@@ -89,10 +89,6 @@ MonoBehaviour:
     m_Key: dictionary
     m_Metadata:
       m_Items: []
-  - m_Id: 3199216124088320
-    m_Key: cancel
-    m_Metadata:
-      m_Items: []
   - m_Id: 3208473003347968
     m_Key: single_device
     m_Metadata:
@@ -130,11 +126,39 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4367556645408768
-    m_Key: confirm
+    m_Key: 
     m_Metadata:
       m_Items: []
   - m_Id: 4368308419874816
-    m_Key: will_be_eliminated
+    m_Key: wins
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4393791501029376
+    m_Key: New Entry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4393890469826560
+    m_Key: return
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4394075556073472
+    m_Key: return_lobby
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4619788028661760
+    m_Key: wins
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4625487882276864
+    m_Key: next round
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4645028486107136
+    m_Key: player_name_must_not_be_empty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4645274431705088
+    m_Key: player_name_must_not_be_duplicate
     m_Metadata:
       m_Items: []
   m_Metadata:

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Role
+public enum PlayerRole
 {
     ALIEN,
     HUMAN
@@ -10,9 +10,9 @@ public enum Role
 [System.Serializable]
 public class Player
 {
-    [SerializeField] public string name;
-    [SerializeField] public int score;
-    [SerializeField] public List<string> words;
-    [SerializeField] public List<Role> roles;
-    [SerializeField] public List<int> voteIndices;
+    [SerializeField] public string name = string.Empty;
+    [SerializeField] public int score = 0;
+    [SerializeField] public List<string> words = new();
+    [SerializeField] public List<PlayerRole> roles = new();
+    [SerializeField] public List<int> voteIndices = new();
 }

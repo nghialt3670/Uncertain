@@ -11,11 +11,28 @@ public class MatchLoadingStrategy : LoadingStrategy
         try
         {
             string wordsEndpoint = "single-device/v1/generate";
+            
+            List<string> assignedWords = MatchSettingsManager.GetAssignedWords();
+            List<WordPair> exceptedPairs = new List<WordPair>();
+            
+            // Create word pairs from assigned words
+            for (int i = 0; i < assignedWords.Count; i++)
+            {
+                for (int j = i + 1; j < assignedWords.Count; j++)
+                {
+                    exceptedPairs.Add(new WordPair
+                    {
+                        first = assignedWords[i],
+                        second = assignedWords[j]
+                    });
+                }
+            }
+            
             WordsRequest wordsRequest = new()
             {
                 domain = MatchSettingsManager.Topic,
                 language = LocalizationUtils.ConvertCodeToNativeName(MatchSettingsManager.Locale),
-                exceptedPairs = new List<WordPair>(),
+                exceptedPairs = exceptedPairs,
             };
             var wordsResponse = await ApiUtils.PostAsync<ApiResponse<WordsData>>(wordsEndpoint, wordsRequest);
 

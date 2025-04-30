@@ -1,0 +1,24 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/GlobalStyles.uss?fileID=7433441132597879392&amp;guid=706ca259c8ef8274e87f9ee07ba294bd&amp;type=3#GlobalStyles" />
+    <Style src="project://database/Assets/UI%20Toolkit/LobbyUI/ValidationOverlay.uss?fileID=7433441132597879392&amp;guid=bc4742ca32071ca48834ac7f16d4ffe4&amp;type=3#ValidationOverlay" />
+    <engine:VisualElement name="Root" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.39); align-items: center; justify-content: center;">
+        <engine:VisualElement name="Modal" style="flex-grow: 0; background-color: rgb(130, 130, 130); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; position: relative; right: auto; left: auto; top: auto; align-self: center; align-content: auto; justify-content: space-between; align-items: stretch;">
+            <engine:VisualElement name="Header" style="flex-grow: 0; height: auto; white-space: normal; flex-direction: row; align-self: auto; align-items: center; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px;" />
+            <engine:VisualElement name="Main" style="flex-grow: 0; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px; align-items: center;">
+                <engine:Label text="Validation Message" name="MessageLabel" style="-unity-text-align: upper-center; -unity-font-style: normal; font-size: 70px; white-space: normal;">
+                    <Bindings>
+                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:11bed78828150f04a88d0d0003cc6c78" entry="Id(4645274431705088)" />
+                    </Bindings>
+                </engine:Label>
+            </engine:VisualElement>
+            <engine:VisualElement name="Footer" style="flex-grow: 0; height: auto; flex-direction: row; align-items: center; justify-content: flex-end; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px;">
+                <engine:VisualElement name="Spacer" style="height: auto; width: 30px;" />
+                <engine:Button text="Close" name="CloseButton" class="button">
+                    <Bindings>
+                        <UnityEngine.Localization.LocalizedString property="text" />
+                    </Bindings>
+                </engine:Button>
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

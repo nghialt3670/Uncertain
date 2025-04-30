@@ -1,10 +1,12 @@
 ﻿using System.Linq;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UIElements;
 
 public class LobbyUIController : MonoBehaviour
 {
     [SerializeField] VisualTreeAsset m_PlayerListItem;
+    [SerializeField] VisualTreeAsset m_ValidationOverlay;
 
     readonly string m_NextSceneName = "RoleAssignmentScene";
     readonly string m_PlayerListViewName = "PlayerListView";
@@ -16,12 +18,19 @@ public class LobbyUIController : MonoBehaviour
     readonly string m_HumanCountLabelName = "HumanCountLabel";
     readonly string m_StartButtonName = "StartButton";
 
+    readonly string m_ValidationMessageLabelName = "MessageLabel";
+    readonly string m_ValidationOvelayCloseButtonName = "CloseButton";
+
     VisualElement m_RootElement;
     ListView m_PlayerListView;
     Button m_AddPlayerButton;
     Label m_AlienCountLabel;
     Label m_HumanCountLabel;
     Button m_StartButton;
+
+    VisualElement m_ValidationOverlayElement;
+    Label m_ValidationMessageLabel;
+    Button m_ValidationOvelayCloseButton;
 
     private void Start()
     {
@@ -33,6 +42,10 @@ public class LobbyUIController : MonoBehaviour
         m_HumanCountLabel = m_RootElement.Q<Label>(m_HumanCountLabelName);
         m_StartButton = m_RootElement.Q<Button>(m_StartButtonName);
 
+        m_ValidationOverlayElement = m_ValidationOverlay.CloneTree();
+        m_ValidationOvelayCloseButton = m_ValidationOverlayElement.Q<Button>(m_ValidationOvelayCloseButtonName);
+        m_ValidationMessageLabel = m_ValidationOverlayElement.Q<Label>(m_ValidationMessageLabelName);
+
         m_PlayerListView.makeItem = m_PlayerListItem.CloneTree;
         m_PlayerListView.bindItem = BindPlayerItem;
         m_PlayerListView.itemsSource = MatchSettingsManager.Players;
@@ -41,7 +54,9 @@ public class LobbyUIController : MonoBehaviour
         m_AddPlayerButton.clicked += UpdateUIElements;
         m_AddPlayerButton.clicked += () => UIToolkitUtils.SmoothScrollToBottom(m_PlayerListView.Q<ScrollView>());
 
-        m_StartButton.clicked += () => SceneUtils.LoadScene(m_NextSceneName);
+        m_StartButton.clicked += HandleStart;
+
+        m_ValidationOvelayCloseButton.clicked += () => UIToolkitUtils.HideOverlay(m_ValidationOverlayElement);
 
         UpdateUIElements();
     }
@@ -49,6 +64,28 @@ public class LobbyUIController : MonoBehaviour
     void Update()
     {
         m_AlienCountLabel.text = MatchSettingsManager.AlienCount.ToString();
+    }
+
+    void HandleStart()
+    {
+        var validationResult = MatchSettingsManager.ValidatePlayerNames();
+
+        if (validationResult == PlayerNamesValidationResult.CONTAINS_EMPTY)
+        {
+            var binding = m_ValidationMessageLabel.GetBinding("text") as LocalizedString;
+            binding.SetReference("lobby", "player_name_must_not_be_empty");
+            UIToolkitUtils.ShowOverlay(m_RootElement, m_ValidationOverlayElement);
+            return;
+        }
+        else if (validationResult == PlayerNamesValidationResult.CONTAINS_DUPLICATE)
+        {
+            var binding = m_ValidationMessageLabel.GetBinding("text") as LocalizedString;
+            binding.SetReference("lobby", "player_name_must_not_be_duplicate");
+            UIToolkitUtils.ShowOverlay(m_RootElement, m_ValidationOverlayElement);
+            return;
+        }
+
+        SceneUtils.LoadScene(m_NextSceneName);
     }
 
     void BindPlayerItem(VisualElement element, int index)
@@ -61,6 +98,12 @@ public class LobbyUIController : MonoBehaviour
             playerNameTextField.value = player.name;
             playerNameTextField.maxLength = GameSettingsManager.PLAYER_NAME_MAX_LENGTH;
             playerNameTextField.RegisterValueChangedCallback(e => player.name = e.newValue);
+
+            if (!MatchSettingsManager.IsNewPlayer(player))
+            {
+                playerNameTextField.isReadOnly = true;
+            }
+
         }
 
         VisualElement removePlayerButton = element.Q(m_RemovePlayerButtonName);
